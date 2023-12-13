@@ -50,10 +50,6 @@
                                     <td class="fw-bold" width="130">Jumlah</td>
                                     <td><input type="number" class="form-control" name="jumlah"></td>
                                 </tr>
-                                <tr>
-                                    <td class="fw-bold" width="130">Status</td>
-                                    <td><input type="text" class="form-control" name="status"></td>
-                                </tr>
 
                                 <tr>
                                     <td colspan="2">

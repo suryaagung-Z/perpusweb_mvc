@@ -17,8 +17,6 @@
                 <div class="form-group">
                   <label>Judul</label>
                   <input type="text" class="form-control" placeholder="masukkan judul buku anda..." name="judul" value="<?= $data['buku']['judul']; ?>">
-                  <label>Cover</label>
-                  <input type="file" class="form-control" placeholder="masukkan cover buku anda..." name="foto" value="<?= $data['buku']['foto']; ?>">
                   <label>ISBN</label>
                   <input type="text" class="form-control" placeholder="masukkan isbn buku anda..." name="isbn" value="<?= $data['buku']['isbn']; ?>">
                   <label>No.Inventaris</label>
@@ -35,6 +33,20 @@
                   <input type="text" class="form-control" placeholder="masukkan nama rak buku anda..." name="rak" value="<?= $data['buku']['rak']; ?>">
                   <label>Tanggal Masuk</label>
                   <input type="date" class="form-control" placeholder="masukkan tanggal masuk buku anda..." name="tanggal" value="<?= $data['buku']['tanggal']; ?>">
+                  <label>Klasifikasi Buku</label>
+                  <input type="text" class="form-control" placeholder="masukkan klasifikasi  buku anda..." name="klasifikasi" value="<?= $data['buku']['klasifikasi']; ?>">
+                  <label>Kelas</label>
+                  <input type="text" class="form-control" placeholder="masukkan kelas siswa..." name="kelas" value="<?= $data['buku']['kelas']; ?>">
+                  <label>Kota Buku</label>
+                  <input type="text" class="form-control" placeholder="masukkan kota  buku..." name="kota" value="<?= $data['buku']['kota']; ?>">
+                  <label>Alamat Buku</label>
+                  <input type="text" class="form-control" placeholder="masukkan alamat  buku anda..." name="alamat" value="<?= $data['buku']['alamat']; ?>">
+                  <label>Tahun Terbit Buku</label>
+                  <input type="text" class="form-control" placeholder="masukkan tahunterbit masuk buku anda..." name="tahunterbit" value="<?= $data['buku']['tahunterbit']; ?>">
+                  <label>Phone</label>
+                  <input type="text" class="form-control" placeholder="masukkan tlp masuk buku anda..." name="tlp" value="<?= $data['buku']['tlp']; ?>">
+                  <label>Keterangan</label>
+                  <input type="text" class="form-control" placeholder="masukkan keterangan buku anda..." name="keterangan" value="<?= $data['buku']['keterangan']; ?>">
                 </div>
               </div>
               <!-- /.card-body -->

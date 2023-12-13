@@ -42,7 +42,6 @@
             <tr>
                 <th style="width: 10px">No</th>
                 <th>Judul Buku</th>
-                <th>Cover</th>
                 <th>ISBN</th>
                 <th>No.Inventaris</th>
                 <th>Pengarang</th>
@@ -59,9 +58,6 @@
             <?php foreach ($data['buku'] as $row) : ?>
               <td><?= $no; ?></td>
                 <td><?= $row['judul']; ?></td>
-                <td align="center">
-                  <img src="<?php echo BASEURL . '/assets/frontsite/img' . $row['foto']; ?>" width="70" height="90" >
-               </td>
                 <td><?= $row['isbn']; ?></td>
                 <td><?= $row['inventaris']; ?></td>
                 <td><?= $row['pengarang']; ?></td>

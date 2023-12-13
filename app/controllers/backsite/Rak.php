@@ -31,7 +31,6 @@ class Rak extends Controller
     public function create()
     {
         $data['title'] = 'Rak';
-        //$data['rak'] = $this->model('RakModel')->getRakById($id);
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);

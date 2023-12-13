@@ -30,16 +30,30 @@ class Laporanpinjam extends Controller
     public function cetak()
     {
         $getByDate = [];
-        if (isset($_POST['date'])) {
-            $dateParts = explode('-', $_POST['date']);
-            $tahun = $dateParts[0];
-            $bulan = $dateParts[1];
-            $tanggal = $dateParts[2];
-            $getByDate = $this->model('PeminjamanModel')->cetakLaporanByDate($tahun, $bulan, $tanggal);
+    
+        if (isset($_POST['startDate']) && isset($_POST['endDate'])) {
+            $startDateParts = explode('-', $_POST['startDate']);
+            $endDateParts = explode('-', $_POST['endDate']);
+    
+            $startYear = $startDateParts[0];
+            $startMonth = $startDateParts[1];
+            $startDay = $startDateParts[2];
+    
+            $endYear = $endDateParts[0];
+            $endMonth = $endDateParts[1];
+            $endDay = $endDateParts[2];
+    
+            $getByDate = $this->model('PeminjamanModel')->cetakLaporanByDateRange($startYear, $startMonth, $startDay, $endYear, $endMonth, $endDay);
+        } elseif (isset($_POST['month']) && isset($_POST['year'])) {
+            $selectedMonth = $_POST['month'];
+            $selectedYear = $_POST['year'];
+    
+            $getByDate = $this->model('PeminjamanModel')->cetakLaporanByMonthAndYear($selectedMonth, $selectedYear);
         } else {
+            // Handle if no date range or month/year is provided, you may choose to show an error message or use a default date range
             $getByDate = $this->model('PeminjamanModel')->cetakPeminjaman();
         }
-
+    
         $data['title'] = 'Laporanpinjam';
         $data['peminjaman'] = $getByDate;
         $this->view('backsite/templates/style', $data);
@@ -49,6 +63,7 @@ class Laporanpinjam extends Controller
         $this->view('backsite/laporanpinjam/cetak', $data);
         $this->view('backsite/templates/script');
     }
+    
 
     public function print()
     {

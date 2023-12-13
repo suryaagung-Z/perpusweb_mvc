@@ -33,7 +33,6 @@ class PeminjamanModel
         $this->db->bind('status', $data['status']);
         $this->db->bind('jumlah', $data['jumlah']);
         $this->db->bind('kelas', $data['kelas']);
-
         $this->db->execute();
         return $this->db->rowCount();
     }
@@ -45,21 +44,34 @@ class PeminjamanModel
         return $this->db->resultSet();
     }
 
-    public function cetakLaporanByDate($year, $month, $day)
+    public function cetakLaporanByMonthAndYear($month, $year)
     {
         // Sesuaikan kondisi sesuai kebutuhan
         $query = "SELECT * FROM peminjaman 
-                  WHERE (YEAR(tanggalpinjam) = :tahun AND MONTH(tanggalpinjam) = :bulan AND DAY(tanggalpinjam) = :tanggal)
-                  OR (YEAR(tanggalkembali) = :tahun AND MONTH(tanggalkembali) = :bulan AND DAY(tanggalkembali) = :tanggal)";
+                  WHERE MONTH(tanggalpinjam) = :bulan AND YEAR(tanggalpinjam) = :tahun";
+    
+        // Bind parameter ke dalam query
+        $this->db->query($query);
+        $this->db->bind(':bulan', $month);
+        $this->db->bind(':tahun', $year);
+    
+        return $this->db->resultSet();
+    }
+    public function cetakLaporanByDateRange($startYear, $startMonth, $startDay, $endYear, $endMonth, $endDay)
+    {
+        // Sesuaikan kondisi sesuai kebutuhan
+        $query = "SELECT * FROM peminjaman 
+                  WHERE (tanggalpinjam BETWEEN :start_date AND :end_date)
+                  OR (tanggalkembali BETWEEN :start_date AND :end_date)";
 
         // Bind parameter ke dalam query
         $this->db->query($query);
-        $this->db->bind(':tahun', $year);
-        $this->db->bind(':bulan', $month);
-        $this->db->bind(':tanggal', $day);
+        $this->db->bind(':start_date', "$startYear-$startMonth-$startDay");
+        $this->db->bind(':end_date', "$endYear-$endMonth-$endDay");
 
         return $this->db->resultSet();
     }
+    
 
 
     public function updatePeminjaman($data)

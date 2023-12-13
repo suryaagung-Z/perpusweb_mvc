@@ -31,11 +31,15 @@
                                     <td><input type="text" class="form-control" name="nama"></td>
                                 </tr>
                                 <tr>
+                                    <td class="fw-bold" width="130">Kelas</td>
+                                    <td><input type="text" class="form-control" name="kelas"></td>
+                                </tr>
+                                <tr>
                                     <td class="fw-bold" width="130">Judul Buku</td>
                                     <td><input type="text" class="form-control" name="judul"></td>
                                 </tr>
                                 <tr>
-                                    <td class="fw-bold" width="130">Tanggal pengembalian</td>
+                                    <td class="fw-bold" width="130">Tanggal peminjaman</td>
                                     <td><input type="date" class="form-control" name="tanggalpinjam"></td>
                                 </tr>
                                 <tr>
@@ -50,10 +54,6 @@
                                     <td class="fw-bold" width="130">Jumlah</td>
                                     <td><input type="number" class="form-control" name="jumlah"></td>
                                 </tr>
-                                <tr>
-                                    <td class="fw-bold" width="130">Status</td>
-                                    <td><input type="text" class="form-control" name="status"></td>
-                                </tr>
 
                                 <tr>
                                     <td colspan="2">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </form>
-          <!-- /.card-body -->
+              <!-- /.card-body -->
           <div class="card-footer">
             Footer
           </div>

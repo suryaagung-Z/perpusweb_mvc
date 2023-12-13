@@ -52,30 +52,7 @@ class Pengembalian extends Controller
             exit;
         }
     }
-    public function cetak()
-    {
-        $data['title'] = 'Pengembalian';
-        $data['pengembalian'] = $this->model('PengembalianModel')->cetakPengembalian();  
-        $this->view('backsite/templates/style', $data);
-        $this->view('backsite/templates/header', $data);
-        $this->view('backsite/templates/sidebar', $data);
-        $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/pengembalian/cetak', $data);
-        $this->view('backsite/templates/script');
-    }
-    public function print()
-    {
-        if ($this->model('PengembalianModel')->cetakPengembalian($_POST) > 0) {
-            Flasher::setMessage('Berhasil', 'dicetak', 'success');
-            header('location: ' . BASEURL . '/backsite/Pengembalian');
-            exit;
-        } else {
-            Flasher::setMessage('Gagal', 'dicetak', 'danger');
-            header('location: ' . BASEURL . '/backsite/Pengembalian');
-            exit;
-        }
-    }
-
+   
     public function edit($id)
     {
         $data['title'] = 'Pengembalian';
@@ -113,4 +90,7 @@ class Pengembalian extends Controller
             exit;
         }
     }
+
+   
+
 }

@@ -8,9 +8,11 @@
           <table style="width: 100%; text-align: center;">
             <tr>
               <td colspan="7">
-                <img src="<?= BASEURL; ?>/assets/frontsite/img/pgri12.png" style="width: 90px; height: auto;">
+                <img src="<?= BASEURL; ?>/assets/frontsite/img/pgri12.png" style="width: 140px; height: auto;">
+                <img src="<?= BASEURL; ?>/assets/frontsite/img/logosmppgri.png" style="width: 90px; height: auto;">
                 <h5>LAPORAN PEMINJAMAN BUKU PERPUSTAKAAN</h5>
                 <h5>SEKOLAH MENENGAH PERTAMA PGRI PANGKALAN KERINCI</h5>
+                
               </td>
             </tr>
             <tr class="row-tempo">
@@ -29,6 +31,12 @@
               margin-top: 10px;
             }
           </style>
+  
+    <?php if (isset($_POST['startDate']) && isset($_POST['endDate'])) : ?>
+      <p>Tanggal Cetak: <?= date('d F Y'); ?></p>
+      <p>Periode Peminjaman Buku: <?= date('d F Y', strtotime($_POST['startDate'])); ?> - <?= date('d F Y', strtotime($_POST['endDate'])); ?></p>
+    <?php endif; ?>
+ 
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -50,7 +58,6 @@
               ?>
                   <tr>
                     <td><?= $no; ?></td>
-
                     <td><?= $row['nama']; ?></td>
                     <td><?= $row['kelas']; ?></td>
                     <td><?= $row['judul']; ?></td>
@@ -66,10 +73,10 @@
               ?>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -80,6 +87,7 @@
         e.preventDefault();
         $('.row-tempo').hide();
         window.print();
+        $('.row-tempo').show(); // Menampilkan kembali elemen yang disembunyikan
       });
     });
   })();

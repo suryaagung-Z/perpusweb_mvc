@@ -6,27 +6,60 @@
         <?php Flasher::Message(); ?>
         <!-- Main content -->
         <section class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12">
-                <div class="d-flex justify-content-end flex-column flex-sm-row mb-4" style="gap:0.8rem;">
-                  <div class="">
-                    <form action="<?= BASEURL; ?>/backsite/laporanpinjam/cetak" method="POST">
-                      <div class="input-group datepicker">
-                        <input type="date" class="form-control" placeholder="" name="date" required>
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                          <button class="btn btn-outline-danger" type="reset">Reset</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-end flex-column flex-sm-row mb-4" style="gap:0.8rem;">
+          <div class="form-group">
+            <form action="<?= BASEURL; ?>/backsite/laporanpinjam/cetak" method="POST">
+              <div class="d-flex align-items-center">
+                <div class="input-group datepicker mr-2">
+                  <label for="startDate" class="mr-2">Tanggal Awal:</label>
+                  <input type="date" class="form-control" id="startDate" name="startDate" required>
+                </div>
+                <div class="input-group datepicker mr-2">
+                  <label for="endDate" class="mr-2">Tanggal Akhir:</label>
+                  <input type="date" class="form-control" id="endDate" name="endDate" required>
+                </div>
+                <div class="input-group datepicker mr-2">
+                  <label for="month" class="mr-2">Bulan:</label>
+                  <select class="form-control" id="month" name="month" required>
+                    <option value="1">Januari</option>
+                    <option value="2">Februari</option>
+                    <option value="3">Maret</option>
+                    <option value="4">April</option>
+                    <option value="5">Mei</option>
+                    <option value="6">Juni</option>
+                    <option value="7">Juli</option>
+                    <option value="8">Agustus</option>
+                    <option value="9">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                  </select>
+                </div>
+                <div class="input-group datepicker mr-2">
+                  <label for="year" class="mr-2">Tahun:</label>
+                  <input type="number" class="form-control" id="year" name="year" required>
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
+                  <button class="btn btn-outline-danger" type="reset">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>                  
                   <div class="">
                     <form action="<?= BASEURL; ?>/backsite/laporanpinjam/cetak" method="POST">
                       <button class="btn btn-primary" type="submit"><i class="bi bi-bookmark-plus-fill">Cetak Laporan</i></button>
                     </form>
                   </div>
-                </div>
+              
                 <!-- Tabel Data -->
                 <table class="table table-bordered">
                   <thead>

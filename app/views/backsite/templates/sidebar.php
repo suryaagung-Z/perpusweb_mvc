@@ -28,12 +28,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= BASEURL; ?>/backsite/anggota" class="nav-link">
-            <i class="nav-icon fas fa-signature"></i>
-            <p> Data Anggota </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="<?= BASEURL; ?>/backsite/kategori" class="nav-link">
             <i class="nav-icon far fa-image"></i>
             <p> Kategori Buku </p>
@@ -49,6 +43,12 @@
           <a href="<?= BASEURL; ?>/backsite/rak" class="nav-link">
             <i class="nav-icon fas fa-certificate"></i>
             <p>Rak Buku </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= BASEURL; ?>/backsite/anggota" class="nav-link">
+            <i class="nav-icon fas fa-signature"></i>
+            <p> Data Anggota </p>
           </a>
         </li>
         <li class="nav-header">Data Transaksi</li>
@@ -84,15 +84,7 @@
             <p>Pengguna</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="<?= BASEURL; ?>/backsite/logout" class="nav-link">
-          <i class="bi bi-box-arrow-in-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-</svg>
-</i>
-            <p> Log Out</p>
-          </a>
-        </li>
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

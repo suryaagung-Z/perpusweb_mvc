@@ -50,30 +50,34 @@
                             text-align: center;
                         }
                     </style>
-                    <form role="form" action="<?= BASEURL; ?>/frontiste/login/login" method="POST">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="logo">
-                                    <img src="<?= BASEURL; ?>/assets/frontsite/img/LOGO SMP PGRI.png" alt="SMP PGRI Logo">
-                                </div>
-                                <div class="title">
-                                    <h2>Welcome Perpustakaan</h2>
-                                </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"  placeholder="Enter Username..." name="username" required>
-                                    </div>
+                   <form role="form" action="<?= BASEURL; ?>/frontsite/login/login" method="POST">
+    <div class="card">
+        <div class="card-body">
+            <div class="logo">
+                <img src="<?= BASEURL; ?>/assets/frontsite/img/LOGO SMP PGRI.png" alt="SMP PGRI Logo">
+            </div>
+            <div class="title">
+                <h2>Welcome Perpustakaan</h2>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control form-control-user" id="username" name="username" required>
+            </div>
 
-                                    <div class="form-group" style="margin-top: 10px;">
-                                        <input type="password" class="form-control form-control-user" placeholder="Enter Password..." name="password" required >
-                                    </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control form-control-user" id="password" name="password" required>
+            </div>
 
-                                    <div class="logo" style="margin-top: 10px;">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </button>
-                                    </div>
-                                </form>
+            <div class="logo" style="margin-top: 10px;">
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
                             </div>
                         </div>
                     </form>

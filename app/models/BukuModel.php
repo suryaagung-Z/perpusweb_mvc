@@ -19,9 +19,8 @@ class BukuModel {
     }
 
     public function tambahBuku($data) {
-        $query = "INSERT INTO buku (foto, judul, penerbit, stok, kategori, rak, inventaris, tanggal, pengarang, isbn) VALUES (:foto, :judul, :penerbit, :stok, :kategori, :rak, :inventaris, :tanggal, :pengarang, :isbn)";
+        $query = "INSERT INTO buku (judul, penerbit, stok, kategori, rak, inventaris, tanggal, pengarang, isbn, klasifikasi, kelas, keterangan, kota, alamat, tahunterbit, tlp) VALUES (:judul, :penerbit, :stok, :kategori, :rak, :inventaris, :tanggal, :pengarang, :isbn, :klasifikasi, :kelas, :keterangan, :kota, :alamat, :tahunterbit, :tlp)";
         $this->db->query($query);
-        $this->db->bind('foto', $data['foto']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('penerbit', $data['penerbit']);
         $this->db->bind('stok', $data['stok']);
@@ -31,16 +30,22 @@ class BukuModel {
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('pengarang', $data['pengarang']);
         $this->db->bind('isbn', $data['isbn']);
+        $this->db->bind('klasifikasi', $data['klasifikasi']);
+        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('kota', $data['kota']);
+        $this->db->bind('alamat', $data['alamat']);
+        $this->db->bind('tahunterbit', $data['tahunterbit']);
+        $this->db->bind('tlp', $data['tlp']);
         $this->db->execute();
         return $this->db->rowCount();
     }
     
     public function updateBuku($data) {
-        $query = "UPDATE buku SET foto=:foto, judul=:judul, penerbit=:penerbit, stok=:stok, kategori=:kategori, rak=:rak, inventaris=:inventaris, tanggal=:tanggal, pengarang=:pengarang, isbn=:isbn WHERE id=:id";
+        $query = "UPDATE buku SET judul=:judul, penerbit=:penerbit, stok=:stok, kategori=:kategori, rak=:rak, inventaris=:inventaris, tanggal=:tanggal, pengarang=:pengarang, isbn=:isbn, klasifikasi=:klasifikasi, kelas=:kelas, keterangan=:keterangan, kota-:kota, alamat=:alamat, tahunterbit=:tahunterbit, tlp=:tlp WHERE id=:id";
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
         $this->db->bind('judul', $data['judul']);
-        $this->db->bind('foto', $data['foto']);
         $this->db->bind('penerbit', $data['penerbit']);
         $this->db->bind('stok', $data['stok']);
         $this->db->bind('kategori', $data['kategori']);
@@ -49,6 +54,13 @@ class BukuModel {
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('pengarang', $data['pengarang']);
         $this->db->bind('isbn', $data['isbn']);
+        $this->db->bind('klasifikasi', $data['klasifikasi']);
+        $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('keterangan', $data['keterangan']);
+        $this->db->bind('kota', $data['kota']);
+        $this->db->bind('alamat', $data['alamat']);
+        $this->db->bind('tahunterbit', $data['tahunterbit']);
+        $this->db->bind('tlp', $data['tlp']);
         $this->db->execute();
         return $this->db->rowCount();
     }

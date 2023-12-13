@@ -44,11 +44,11 @@ class Buku extends Controller
     {
         if ($this->model('BukuModel')->tambahBuku($_POST) > 0) {
             Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-            header('location: ' . BASEURL . '/backsite/buku');
+            header('location: ' . BASEURL . '/backsite/Buku');
             exit;
         } else {
             Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-            header('location: ' . BASEURL . '/backsite/buku');
+            header('location: ' . BASEURL . '/backsite/Buku');
             exit;
         }
     }
