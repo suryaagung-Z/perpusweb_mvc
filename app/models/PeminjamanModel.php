@@ -49,12 +49,12 @@ class PeminjamanModel
         // Sesuaikan kondisi sesuai kebutuhan
         $query = "SELECT * FROM peminjaman 
                   WHERE MONTH(tanggalpinjam) = :bulan AND YEAR(tanggalpinjam) = :tahun";
-    
+
         // Bind parameter ke dalam query
         $this->db->query($query);
         $this->db->bind(':bulan', $month);
         $this->db->bind(':tahun', $year);
-    
+
         return $this->db->resultSet();
     }
     public function cetakLaporanByDateRange($startYear, $startMonth, $startDay, $endYear, $endMonth, $endDay)
@@ -71,7 +71,7 @@ class PeminjamanModel
 
         return $this->db->resultSet();
     }
-    
+
 
 
     public function updatePeminjaman($data)

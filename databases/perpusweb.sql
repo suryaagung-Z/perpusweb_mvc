@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2023 at 04:18 AM
+-- Generation Time: Dec 13, 2023 at 07:35 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,7 +45,6 @@ CREATE TABLE `anggota` (
 
 CREATE TABLE `buku` (
   `id` int(11) NOT NULL,
-  `foto` varbinary(225) NOT NULL,
   `judul` varchar(100) NOT NULL,
   `penerbit` varchar(100) NOT NULL,
   `stok` int(100) NOT NULL,
@@ -54,15 +53,24 @@ CREATE TABLE `buku` (
   `inventaris` varchar(100) NOT NULL,
   `tanggal` varchar(100) NOT NULL,
   `pengarang` varchar(100) NOT NULL,
-  `isbn` varchar(100) NOT NULL
+  `isbn` varchar(100) NOT NULL,
+  `klasifikasi` varchar(100) NOT NULL,
+  `kelas` varchar(200) NOT NULL,
+  `keterangan` varchar(225) NOT NULL,
+  `kota` varchar(200) NOT NULL,
+  `alamat` varchar(200) NOT NULL,
+  `tahunterbit` int(5) NOT NULL,
+  `tlp` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `buku`
 --
 
-INSERT INTO `buku` (`id`, `foto`, `judul`, `penerbit`, `stok`, `kategori`, `rak`, `inventaris`, `tanggal`, `pengarang`, `isbn`) VALUES
-(5, '', 'Algoritma & Pemograman123', 'Informatika1', 1, 'akademik', '12', 'qwa', '2023-11-29', 'dwef', '11239a');
+INSERT INTO `buku` (`id`, `judul`, `penerbit`, `stok`, `kategori`, `rak`, `inventaris`, `tanggal`, `pengarang`, `isbn`, `klasifikasi`, `kelas`, `keterangan`, `kota`, `alamat`, `tahunterbit`, `tlp`) VALUES
+(8, 'Algoritma & Pemograman', 'Informatika', 13, 'fiksi', 'fiksi1', 'qwa', '736876', 'dwef', '11239a', '123', '5', 'calon ', 'x sacb', 'Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 2004, 2147483647),
+(9, '', '', 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0),
+(10, '', '', 0, '', '', '', '', '', '', '', '', '', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,6 @@ CREATE TABLE `laporankembali` (
 
 CREATE TABLE `login` (
   `id` int(11) NOT NULL,
-  `nama` varchar(225) NOT NULL,
   `username` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -121,8 +128,8 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `nama`, `username`, `password`) VALUES
-(2, 'pgri', 'admin@pgri.com', 'adminpgri');
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(2, 'admin@pgri.com', 'adminpgri');
 
 -- --------------------------------------------------------
 
@@ -146,11 +153,8 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id`, `nama`, `judul`, `tanggalpinjam`, `tanggalkembali`, `status`, `jumlah`, `kelas`) VALUES
-(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-26', '2023-12-01', 'dipinjam', '1', '7'),
-(6, 'siti', 'Algoritma & Pemograman', '2023-11-17', '2023-11-21', 'dipinjam', '1', '8'),
-(7, 'Resto & Cafe Solitaire', 'Jurnal Of Computer', '2023-11-23', '2023-11-09', 'Dikembalikan', '1', '9'),
-(11, '', '', '0000-00-00', '0000-00-00', '', '', '11'),
-(12, '', '', '0000-00-00', '0000-00-00', '', '', '');
+(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-01', '2023-12-03', '', '13', '7'),
+(6, 'siti', 'Algoritma & Pemograman', '2023-11-02', '2023-11-05', '', '1', '8');
 
 -- --------------------------------------------------------
 
@@ -218,16 +222,17 @@ CREATE TABLE `pengembalian` (
   `tanggalkembali` date NOT NULL,
   `kembali` text NOT NULL,
   `jumlah` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `kelas` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pengembalian`
 --
 
-INSERT INTO `pengembalian` (`id`, `nama`, `judul`, `tanggalpinjam`, `tanggalkembali`, `kembali`, `jumlah`, `status`) VALUES
-(2, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-26', '2023-12-01', '2023-11-30', '1', 'Dikembalikan'),
-(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-28', '2023-12-02', '2023-12-17', '1', 'admin');
+INSERT INTO `pengembalian` (`id`, `nama`, `judul`, `tanggalpinjam`, `tanggalkembali`, `kembali`, `jumlah`, `status`, `kelas`) VALUES
+(2, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-26', '2023-12-01', '2023-11-30', '1', 'Dikembalikan', ''),
+(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-28', '2023-12-02', '2023-12-17', '1', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -299,7 +304,8 @@ INSERT INTO `rak` (`id`, `nomor`, `nama`, `keterangan`) VALUES
 (1, 'rak11', 'novel', 'photo'),
 (2, 'novelkuuu12', 'siti', 'photo'),
 (4, 'novelkuuu', 'Resto & Cafe Solitaire', 'photok'),
-(8, '', '', '');
+(8, '', '', ''),
+(9, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -404,7 +410,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -464,7 +470,7 @@ ALTER TABLE `pengguna1`
 -- AUTO_INCREMENT for table `rak`
 --
 ALTER TABLE `rak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

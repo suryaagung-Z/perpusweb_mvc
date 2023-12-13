@@ -4,7 +4,7 @@ class Peminjaman extends Controller
     public function index()
     {
         $data['title'] = 'Peminjaman';
-        $data['peminjaman'] = $this->model('PeminjamanModel')->getAllPeminjaman();  
+        $data['peminjaman'] = $this->model('PeminjamanModel')->getAllPeminjaman();
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
@@ -52,7 +52,41 @@ class Peminjaman extends Controller
             exit;
         }
     }
-   
+
+    public function move_to_pengembalian($id)
+    {
+        $data = $this->model('PeminjamanModel')->getPeminjamanById($id);
+
+        if ($data) {
+            $pengembalianData = [
+                'nama' => $data['nama'],
+                'judul' => $data['judul'],
+                'tanggalpinjam' => $data['tanggalpinjam'],
+                'tanggalkembali' => $data['tanggalkembali'],
+                'kembali' => date('Y-m-d'),
+                'jumlah' => $data['jumlah'],
+                'status' => "dikembalikan",
+                'kelas' => $data['kelas']
+            ];
+
+            $move = $this->model('PengembalianModel')->tambahPengembalian($pengembalianData);
+
+            if ($move > 0) {
+                $this->model('PeminjamanModel')->deletePeminjaman($data['id']);
+                Flasher::setMessage('Berhasil', 'ditambahkan ke tabel pengembalian', 'success');
+                header("Location: " . BASEURL . "/backsite/pengembalian");
+            } else {
+                Flasher::setMessage('Gagal', 'ditambahkan ke tabel pengembalian', 'danger');
+                header("Location: " . BASEURL . "/backsite/peminjaman");
+            }
+        } else {
+            Flasher::setMessage('Tidak Ditemukan', '', 'danger');
+            header("Location: " . BASEURL . "/backsite/peminjaman");
+            exit();
+        }
+    }
+
+
     public function edit($id)
     {
         $data['title'] = 'Peminjaman';
@@ -90,6 +124,4 @@ class Peminjaman extends Controller
             exit;
         }
     }
-
-
 }

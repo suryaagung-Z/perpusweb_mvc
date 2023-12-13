@@ -38,6 +38,7 @@ class PengembalianModel
         $this->db->execute();
         return $this->db->rowCount();
     }
+
     public function cetakPengembalian()
     {
         $query = "SELECT nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas FROM pengembalian";
@@ -51,12 +52,12 @@ class PengembalianModel
         // Sesuaikan kondisi sesuai kebutuhan
         $query = "SELECT * FROM pengembalian
                   WHERE MONTH(tanggalpinjam) = :bulan AND YEAR(tanggalpinjam) = :tahun";
-    
+
         // Bind parameter ke dalam query
         $this->db->query($query);
         $this->db->bind(':bulan', $month);
         $this->db->bind(':tahun', $year);
-    
+
         return $this->db->resultSet();
     }
     public function cetakLaporanByDateRange($startYear, $startMonth, $startDay, $endYear, $endMonth, $endDay)
@@ -73,7 +74,7 @@ class PengembalianModel
 
         return $this->db->resultSet();
     }
-    
+
 
 
     public function updatePengembalian($data)
