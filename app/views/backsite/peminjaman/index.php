@@ -65,7 +65,7 @@
                           <td>
                             <div class="d-flex flex-column align-items-center">
                               <span class="badge badge-info">
-                                <i class="bi bi-pencil-square"><?= $row['status']; ?></i>
+                                <i class="bi bi-pencil-square">Dipinjam</i>
                               </span>
                               <a href="<?= BASEURL; ?>/backsite/peminjaman/move_to_pengembalian/<?= $row['id'] ?>" onclick="return confirm('Pindahkan data ke pengembalian?');">
                                 <u><small>kembalikan</small></u>

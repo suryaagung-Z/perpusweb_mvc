@@ -95,14 +95,59 @@ class Pengguna extends Controller
 
     public function update()
     {
-        if ($this->model('PenggunaModel')->updatePengguna($_POST) > 0) {
-            Flasher::setMessage('Berhasil', 'diupdate', 'success');
-            header('location: ' . BASEURL . '/backsite/Pengguna');
-            exit;
-        } else {
-            Flasher::setMessage('Gagal', 'diupdate', 'danger');
-            header('location: ' . BASEURL . '/backsite/Pengguna');
-            exit;
+        if (isset($_POST['proses'])) {
+            $id = $_POST['id'];
+            $namaFile = $_FILES['foto']['name'];
+            $ukuranFile = $_FILES['foto']['size'];
+            $error = $_FILES['foto']['error'];
+            $tmpName = $_FILES['foto']['tmp_name'];
+
+            // Cek apakah ada gambar yang diupload
+            if ($ukuranFile > 0) {
+                // Proses update gambar
+                $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+
+                if (move_uploaded_file($tmpName, $tujuan)) {
+                    // Update data anggota dengan foto baru
+                    $data = [
+                        "id" => $id,
+                        "foto" => $namaFileBaru,
+                        "nama"   => $_POST['nama'],
+                        "email"  => $_POST['email'],
+                        "status" => $_POST['status'],
+                        "level"  => $_POST['level'],
+                        "tlp"    => $_POST['tlp'],
+
+                    ];
+
+                    if ($this->model('PenggunaModel')->updatePengguna($data) > 0) {
+                        Flasher::setMessage('Berhasil', 'diupdate', 'success');
+                        header('location: ' . BASEURL . '/backsite/pengguna');
+                        exit;
+                    }
+                } else {
+                    Flasher::setMessage('Gagal', 'Update foto', 'danger');
+                    header('location: ' . BASEURL . '/backsite/pengguna/edit/' . $id);
+                    exit;
+                }
+            } else {
+                // Jika tidak ada gambar yang diupload, update data anggota tanpa mengubah foto
+                $data = [
+                    "id" => $id,
+                    // tambahkan field lain yang perlu diupdate
+                ];
+
+                if ($this->model('PenggunaModel')->updatePengguna($data) > 0) {
+                    Flasher::setMessage('Berhasil', 'diupdate', 'success');
+                    header('location: ' . BASEURL . '/backsite/pengguna');
+                    exit;
+                } else {
+                    Flasher::setMessage('Gagal', 'diupdate', 'danger');
+                    header('location: ' . BASEURL . '/backsite/pengguna/edit/' . $id);
+                    exit;
+                }
+            }
         }
     }
     public function deploy($id)

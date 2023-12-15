@@ -57,7 +57,13 @@
             <?php $no = 1; ?>
             <?php foreach ($data['buku'] as $row) : ?>
               <td><?= $no; ?></td>
-                <td><?= $row['judul']; ?></td>
+              <td>
+    <div class="text-center">
+        <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $row['foto']; ?>" style="width: 60px;" alt="Foto Profil">
+        <p class="mt-2"><?= $row['judul']; ?></p>
+    </div>
+</td>
+
                 <td><?= $row['isbn']; ?></td>
                 <td><?= $row['inventaris']; ?></td>
                 <td><?= $row['pengarang']; ?></td>

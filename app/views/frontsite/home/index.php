@@ -3,7 +3,7 @@
   <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
  
     
-    <h1 style="color: black"><marquee direction="left">Selamat datang di Perpustakaan SMP PGRI</marquee></h1>
+    <h1 style="color: black"><marquee direction="left">Selamat datang di Perpustakaan SMP PGRI Kab.Pelalawan</marquee></h1>
     <h2 style="color: black; font-weight: bold; letter-spacing: 2px; text-align: center;">
       Tempat di mana petualangan ilmu berada
     </h2>

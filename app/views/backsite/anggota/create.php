@@ -34,7 +34,7 @@
                                     <td>
                                         <div class="form-group">
                                             <label for="gambar" class="visually-hidden">Gambar</label>
-                                            <input type="file" class="form-control" id="poto" name="poto">
+                                            <input type="file" class="form-control" id="foto" name="foto">
                                         </div>
                                     </td>
                                 </tr>

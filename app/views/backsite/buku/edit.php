@@ -11,49 +11,80 @@
           </div>
           <div class="card-body">
             <!-- form start -->
-            <form role="form" action="<?= BASEURL; ?>/backsite/buku/update" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="id" value="<?= $data['buku']['id']; ?>">
-              <div class="card-body">
-                <div class="form-group">
-                  <label>Judul</label>
-                  <input type="text" class="form-control" placeholder="masukkan judul buku anda..." name="judul" value="<?= $data['buku']['judul']; ?>">
-                  <label>ISBN</label>
-                  <input type="text" class="form-control" placeholder="masukkan isbn buku anda..." name="isbn" value="<?= $data['buku']['isbn']; ?>">
-                  <label>No.Inventaris</label>
-                  <input type="text" class="form-control" placeholder="masukkan nomor inventaris buku anda..." name="inventaris" value="<?= $data['buku']['inventaris']; ?>">
-                  <label>Pengarang</label>
-                  <input type="text" class="form-control" placeholder="masukkan pengarang buku anda..." name="pengarang" value="<?= $data['buku']['pengarang']; ?>">
-                  <label>Penerbit</label>
-                  <input type="text" class="form-control" placeholder="masukkan penerbit buku..." name="penerbit" value="<?= $data['buku']['penerbit']; ?>">
-                  <label>Kategori</label>
-                  <input type="text" class="form-control" placeholder="masukkan kategori buku anda..." name="kategori" value="<?= $data['buku']['kategori']; ?>">
-                  <label>Stok</label>
-                  <input type="text" class="form-control" placeholder="berapakah jumlah buku yang tersedia" name="stok" value="<?= $data['buku']['stok']; ?>">
-                  <label>Rak</label>
-                  <input type="text" class="form-control" placeholder="masukkan nama rak buku anda..." name="rak" value="<?= $data['buku']['rak']; ?>">
-                  <label>Tanggal Masuk</label>
-                  <input type="date" class="form-control" placeholder="masukkan tanggal masuk buku anda..." name="tanggal" value="<?= $data['buku']['tanggal']; ?>">
-                  <label>Klasifikasi Buku</label>
-                  <input type="text" class="form-control" placeholder="masukkan klasifikasi  buku anda..." name="klasifikasi" value="<?= $data['buku']['klasifikasi']; ?>">
-                  <label>Kelas</label>
-                  <input type="text" class="form-control" placeholder="masukkan kelas siswa..." name="kelas" value="<?= $data['buku']['kelas']; ?>">
-                  <label>Kota Buku</label>
-                  <input type="text" class="form-control" placeholder="masukkan kota  buku..." name="kota" value="<?= $data['buku']['kota']; ?>">
-                  <label>Alamat Buku</label>
-                  <input type="text" class="form-control" placeholder="masukkan alamat  buku anda..." name="alamat" value="<?= $data['buku']['alamat']; ?>">
-                  <label>Tahun Terbit Buku</label>
-                  <input type="text" class="form-control" placeholder="masukkan tahunterbit masuk buku anda..." name="tahunterbit" value="<?= $data['buku']['tahunterbit']; ?>">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" placeholder="masukkan tlp masuk buku anda..." name="tlp" value="<?= $data['buku']['tlp']; ?>">
-                  <label>Keterangan</label>
-                  <input type="text" class="form-control" placeholder="masukkan keterangan buku anda..." name="keterangan" value="<?= $data['buku']['keterangan']; ?>">
-                </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Ubah</button>
-              </div>
-            </form>
+            <form action="<?= BASEURL; ?>/backsite/buku/update" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="<?= $data['buku']['id']; ?>">
+  <div class="form-group">
+    <label>Judul</label>
+    <input type="text" class="form-control" placeholder="Masukkan judul" name="judul" value="<?= $data['buku']['judul']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Foto</label>
+    <input type="file" class="form-control" name="foto">
+    <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $data['buku']['foto']; ?>" style="width: 60px;">
+  </div>
+  <div class="form-group">
+    <label>Stok</label>
+    <input type="text" class="form-control" placeholder="Masukkan stok" name="stok" value="<?= $data['buku']['stok']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Kategori</label>
+    <input type="text" class="form-control" placeholder="Masukkan kategori" name="kategori" value="<?= $data['buku']['kategori']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Rak</label>
+    <input type="text" class="form-control" placeholder="Masukkan rak buku" name="rak" value="<?= $data['buku']['rak']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Inventaris</label>
+    <input type="text" class="form-control" placeholder="Masukkan inventaris" name="inventaris" value="<?= $data['buku']['inventaris']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Tanggal</label>
+    <input type="text" class="form-control" placeholder="Masukkan tanggal" name="tanggal" value="<?= $data['buku']['tanggal']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Pengarang</label>
+    <input type="text" class="form-control" placeholder="Masukkan pengarang" name="pengarang" value="<?= $data['buku']['pengarang']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Isbn</label>
+    <input type="text" class="form-control" placeholder="Masukkan isbn" name="isbn" value="<?= $data['buku']['isbn']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Klasifikasi</label>
+    <input type="text" class="form-control" placeholder="Masukkan klasifikasi" name="klasifikasi" value="<?= $data['buku']['klasifikasi']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Kelas</label>
+    <input type="text" class="form-control" placeholder="Masukkan kelas" name="kelas" value="<?= $data['buku']['kelas']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Keterangan</label>
+    <input type="text" class="form-control" placeholder="Masukkan keterangan" name="keterangan" value="<?= $data['buku']['keterangan']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Kota</label>
+    <input type="text" class="form-control" placeholder="Masukkan kota" name="kota" value="<?= $data['buku']['kota']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Alamat</label>
+    <input type="text" class="form-control" placeholder="Masukkan alamat" name="alamat" value="<?= $data['buku']['alamat']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Tahun Terbit</label>
+    <input type="text" class="form-control" placeholder="Masukkan tahunterbit" name="tahunterbit" value="<?= $data['buku']['tahunterbit']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" class="form-control" placeholder="Masukkan tlp" name="tlp" value="<?= $data['buku']['tlp']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Penerbit</label>
+    <input type="text" class="form-control" placeholder="Masukkan penerbit" name="penerbit" value="<?= $data['buku']['penerbit']; ?>">
+  </div>
+  <button type="submit" class="btn btn-primary" name="proses">Update</button>
+</form>
+             
           </div>
           <!-- /.card-body -->
           <div class="card-footer">

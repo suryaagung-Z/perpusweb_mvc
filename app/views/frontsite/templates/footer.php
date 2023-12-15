@@ -9,7 +9,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
-       <a href="https://bootstrapmade.com/">Smp Pgri Pangkalan Kerinci</a>
+       <a href="https://bootstrapmade.com/">Smp Pgri Pangkalan Kerinci Kab.Pelalawan</a>
       </div>
     </div>
   </footer><!-- End  Footer -->

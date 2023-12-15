@@ -9,6 +9,13 @@ class PengembalianModel
         $this->db = new Database;
     }
 
+    public function countPengembalian()
+    {
+        $this->db->query('SELECT COUNT(*) as total_rows FROM ' . $this->table);
+        return $this->db->single();
+    }
+
+
     public function getAllPengembalian()
     {
         $this->db->query('SELECT * FROM ' . $this->table);

@@ -38,10 +38,6 @@
                   <label>Jumlah</label>
                   <input type="text" class="form-control" placeholder="masukkan jumlah..." name="jumlah" value="<?= $data['peminjaman']['jumlah']; ?>">
                 </div>
-                <div class="form-group">
-                  <label>Status</label>
-                  <input type="text" class="form-control" placeholder="masukkan status..." name="status" value="<?= $data['peminjaman']['status']; ?>">
-                </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">

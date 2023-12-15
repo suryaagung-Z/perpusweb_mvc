@@ -10,98 +10,96 @@
           <div class="card-header">
             <h3 class="card-title">Tambah Buku</h3>
           </div>
-        <div class="card-body">
+          <div class="card-body">
             <!-- form start -->
-            <form action="<?= BASEURL; ?>/backsite/buku/store" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?= BASEURL; ?>/backsite/buku/store" method="POST"
+              enctype="multipart/form-data">
               <div class="card-body">
-                <div class="form-group">
-                  <label>Judul Buku</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan judul buku anda..." id="judul" name="judul">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold" width="130">Gambar</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="gambar" class="visually-hidden">Gambar</label>
+                                            <input type="file" class="form-control" id="foto" name="foto">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Judul Buku</td>
+                                    <td><input type="text" class="form-control" name="judul"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Stok</td>
+                                    <td><input type="text" class="form-control" name="stok"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Kategori</td>
+                                    <td><input type="text" class="form-control" name="kategori"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Rak</td>
+                                    <td><input type="text" class="form-control" name="rak"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Inventaris</td>
+                                    <td><input type="text" class="form-control" name="inventaris"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Tanggal</td>
+                                    <td><input type="text" class="form-control" name="tanggal"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Pengarang</td>
+                                    <td><input type="text" class="form-control" name="pengarang"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Penerbit</td>
+                                    <td><input type="text" class="form-control" name="penerbit"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Isbn</td>
+                                    <td><input type="text" class="form-control" name="isbn"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Klasifikasi</td>
+                                    <td><input type="text" class="form-control" name="klasifikasi"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Kelas</td>
+                                    <td><input type="text" class="form-control" name="kelas"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Keterangan</td>
+                                    <td><input type="text" class="form-control" name="keterangan"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Kota</td>
+                                    <td><input type="text" class="form-control" name="kota"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Alamat</td>
+                                    <td><input type="text" class="form-control" name="alamat"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Tahun Terbit</td>
+                                    <td><input type="text" class="form-control" name="tahunterbit"></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold" width="130">Phone</td>
+                                    <td><input type="text" class="form-control" name="tlp"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="submit" class="btn btn-primary" name="proses">Simpan Data</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                  <label>ISBN</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan isbn buku..." id="isbn" name="isbn">
-                </div>
-                <div class="form-group">
-                  <label>No.Inventaris </label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan nomor inventaris buku..." id="inventaris" name="inventaris">
-                </div>
-                <div class="form-group">
-                  <label>Pengarang</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan pengarang buku..." id="pengarang" name="pengarang">
-                </div>
-                <div class="form-group">
-                  <label>Penerbit </label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan Penerbit buku..." id="penerbit" name="penerbit">
-                </div>
-                <div class="form-group">
-                  <label>Kategori</label>
-                  <input type="text" class="form-control"
-                    placeholder="kategori buku anda..." id="kategori" name="kategori">
-                </div>
-                <div class="form-group">
-                  <label>Stok</label>
-                  <input type="text" class="form-control"
-                    placeholder="berapakah jumlah buku yang tersedia..." id="stok" name="stok">
-                </div>
-                <div class="form-group">
-                  <label>Rak</label>
-                  <input type="text" class="form-control"
-                    placeholder="dimanakah letak buku ..." id="rak" name="rak">
-                </div>
-                <div class="form-group">
-                  <label>Tanggal Masuk</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan tanggal buku anda..." id="tanggal" name="tanggal">
-                </div>
-                <div class="form-group">
-                  <label>Klasifikasi Buku</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan klasifikasi buku anda..." id="klasifikasi" name="klasifikasi">
-                </div>
-                <div class="form-group">
-                  <label>Kelas</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan kelas siswa..." id="kelas" name="kelas">
-                </div>
-                <div class="form-group">
-                  <label>Kota Buku</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan kota buku anda..." id="kota" name="kota">
-                </div>
-                <div class="form-group">
-                  <label>Alamat Buku</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan alamat buku anda..." id="alamat" name="alamat">
-                </div>
-                <div class="form-group">
-                  <label>Tahun Terbit Buku</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan tahunn terbit buku anda..." id="tahunterbit" name="tahunterbit">
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan phone buku anda..." id="tlp" name="tlp">
-                </div>
-                <div class="form-group">
-                  <label>Keterangan</label>
-                  <input type="text" class="form-control"
-                    placeholder="masukkan keterangan buku anda..." id="keterangan" name="keterangan">
-                </div>
-                
-
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
             </form>
             <!-- Menampilkan pesan upload jika ada -->
 <?php if (isset($data['uploadedFileName'])) : ?>

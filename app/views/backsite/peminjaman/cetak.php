@@ -31,7 +31,6 @@
                   <th>Tanggal Pinjam</th>
                   <th>Tanggal Pengembalian</th>
                   <th>Jumlah</th>
-                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,7 +47,6 @@
                       <td><?= $row['tanggalpinjam']; ?></td>
                       <td><?= $row['tanggalkembali']; ?></td>
                       <td><?= $row['jumlah']; ?></td>
-                      <td><?= $row['status']; ?></td>
                     </tr>
                 <?php
                     $no++;

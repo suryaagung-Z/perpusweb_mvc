@@ -13,27 +13,33 @@
             <!-- form start -->
             <form role="form" action="<?= BASEURL; ?>/backsite/pengguna/update" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?= $data['pengguna']['id']; ?>">
-              <div class="card-body">
-                <div class="form-group">
-                  <label>Nama</label>
-                  <input type="text" class="form-control" placeholder="masukkan nama" name="nama" value="<?= $data['pengguna']['nama']; ?>">
-                  <label>Foto</label>
-                  <input type="file" class="form-control" placeholder="masukkan photo" name="foto" value="<?= $data['pengguna']['foto']; ?>">
-                  <label>Email</label>
-                  <input type="text" class="form-control" placeholder="masukkan email" name="email" value="<?= $data['pengguna']['email']; ?>">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" placeholder="masukkan tlp" name="tlp" value="<?= $data['pengguna']['tlp']; ?>">
-                  <label>Status</label>
-                  <input type="text" class="form-control" placeholder="masukkan status" name="status" value="<?= $data['pengguna']['status']; ?>">
-                  <label>Level</label>
-                  <input type="text" class="form-control" placeholder="masukkan level" name="level" value="<?= $data['pengguna']['level']; ?>">
-                </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Ubah</button>
-              </div>
-            </form>
+              <div class="form-group">
+    <label>Nama</label>
+    <input type="text" class="form-control" placeholder="Masukkan nama" name="nama" value="<?= $data['pengguna']['nama']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Foto</label>
+    <input type="file" class="form-control" name="foto">
+    <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $data['pengguna']['foto']; ?>" style="width: 60px;">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" placeholder="Masukkan email" name="email" value="<?= $data['pengguna']['email']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <input type="text" class="form-control" placeholder="Masukkan status" name="status" value="<?= $data['pengguna']['status']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Level</label>
+    <input type="text" class="form-control" placeholder="Masukkan level" name="level" value="<?= $data['pengguna']['level']; ?>">
+  </div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" class="form-control" placeholder="Masukkan tlp" name="tlp" value="<?= $data['pengguna']['tlp']; ?>">
+  </div>
+  <button type="submit" class="btn btn-primary" name="proses">Update</button>
+</form>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">

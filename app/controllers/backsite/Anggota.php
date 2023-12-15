@@ -4,7 +4,7 @@ class Anggota extends Controller
     public function index()
     {
         $data['title'] = 'Anggota';
-        $data['anggota'] = $this->model('AnggotaModel')->getAllAnggota();  
+        $data['anggota'] = $this->model('AnggotaModel')->getAllAnggota();
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
@@ -42,16 +42,43 @@ class Anggota extends Controller
 
     public function store()
     {
-        if ($this->model('AnggotaModel')->tambahAnggota($_POST) > 0) {
-            Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-            header('location: ' . BASEURL . '/backsite/anggota');
-            exit;
-        } else {
+        if (isset($_POST['proses'])) {
+            $namaFile = $_FILES['foto']['name'];
+            $ukuranFile = $_FILES['foto']['size'];
+            $error = $_FILES['foto']['error'];
+            $tmpName = $_FILES['foto']['tmp_name'];
+
+            if ($ukuranFile > 1000000) {
+                Flasher::setMessage('Gagal', 'disimpan, Ukuran file melebihi 1 MB', 'danger');
+                header('location: ' . BASEURL . '/backsite/Anggota');
+                exit;
+            }
+
+            if ($error === 0) {
+                $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+
+                if (move_uploaded_file($tmpName, $tujuan)) {
+                    if ($this->model('AnggotaModel')->tambahAnggota([
+                        "foto"   => $namaFileBaru,
+                        "nisn"   => $_POST['nisn'],
+                        "nama"  => $_POST['nama'],
+                        "kelas" => $_POST['kelas'],
+                        "jk"  => $_POST['jk'],
+                        "alamat"    => $_POST['alamat'],
+                    ]) > 0) {
+                        Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
+                        header('location: ' . BASEURL . '/backsite/Anggota');
+                        exit;
+                    }
+                }
+            }
             Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-            header('location: ' . BASEURL . '/backsite/anggota');
+            header('location: ' . BASEURL . '/backsite/Anggota');
             exit;
         }
     }
+
 
     public function edit($id)
     {
@@ -68,16 +95,62 @@ class Anggota extends Controller
 
     public function update()
     {
-        if ($this->model('AnggotaModel')->updateAnggota($_POST) > 0) {
-            Flasher::setMessage('Berhasil', 'diupdate', 'success');
-            header('location: ' . BASEURL . '/backsite/anggota');
-            exit;
-        } else {
-            Flasher::setMessage('Gagal', 'diupdate', 'danger');
-            header('location: ' . BASEURL . '/backsite/anggota');
-            exit;
+        if (isset($_POST['proses'])) {
+            $id = $_POST['id'];
+            $namaFile = $_FILES['foto']['name'];
+            $ukuranFile = $_FILES['foto']['size'];
+            $error = $_FILES['foto']['error'];
+            $tmpName = $_FILES['foto']['tmp_name'];
+
+            // Cek apakah ada gambar yang diupload
+            if ($ukuranFile > 0) {
+                // Proses update gambar
+                $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+
+                if (move_uploaded_file($tmpName, $tujuan)) {
+                    // Update data anggota dengan foto baru
+                    $data = [
+                        "id" => $id,
+                        "foto" => $namaFileBaru,
+                        "nisn"   => $_POST['nisn'],
+                        "nama"  => $_POST['nama'],
+                        "kelas" => $_POST['kelas'],
+                        "jk"  => $_POST['jk'],
+                        "alamat"    => $_POST['alamat'],
+
+                    ];
+
+                    if ($this->model('AnggotaModel')->updateAnggota($data) > 0) {
+                        Flasher::setMessage('Berhasil', 'diupdate', 'success');
+                        header('location: ' . BASEURL . '/backsite/anggota');
+                        exit;
+                    }
+                } else {
+                    Flasher::setMessage('Gagal', 'Update foto', 'danger');
+                    header('location: ' . BASEURL . '/backsite/anggota/edit/' . $id);
+                    exit;
+                }
+            } else {
+                // Jika tidak ada gambar yang diupload, update data anggota tanpa mengubah foto
+                $data = [
+                    "id" => $id,
+                    // tambahkan field lain yang perlu diupdate
+                ];
+
+                if ($this->model('AnggotaModel')->updateAnggota($data) > 0) {
+                    Flasher::setMessage('Berhasil', 'diupdate', 'success');
+                    header('location: ' . BASEURL . '/backsite/anggota');
+                    exit;
+                } else {
+                    Flasher::setMessage('Gagal', 'diupdate', 'danger');
+                    header('location: ' . BASEURL . '/backsite/anggota/edit/' . $id);
+                    exit;
+                }
+            }
         }
     }
+
     public function deploy($id)
     {
         if ($this->model('AnggotaModel')->deleteAnggota($id) > 0) {
@@ -93,14 +166,13 @@ class Anggota extends Controller
 
     public function print($id)
     {
-        if ($this->model('AnggotaModel')->deleteAnggota($id) > 0) {
-            Flasher::setMessage('Berhasil', 'diprint', 'success');
-            header('location: ' . BASEURL . '/backsite/anggota');
-            exit;
-        } else {
-            Flasher::setMessage('Gagal', 'diprint', 'danger');
-            header('location: ' . BASEURL . '/backsite/anggota');
-            exit;
-        }
+        $data['title'] = 'Anggota';
+        $data['anggota'] = $this->model('AnggotaModel')->getAnggotaById($id);
+        $this->view('backsite/templates/style', $data);
+        $this->view('backsite/templates/header', $data);
+        $this->view('backsite/templates/sidebar', $data);
+        $this->view('backsite/templates/breadcrumb', $data);
+        $this->view('backsite/anggota/cetak', $data);
+        $this->view('backsite/templates/script');
     }
 }

@@ -9,6 +9,13 @@ class PeminjamanModel
         $this->db = new Database;
     }
 
+    public function countPeminjaman()
+    {
+        $this->db->query('SELECT COUNT(*) as total_rows FROM ' . $this->table);
+        return $this->db->single();
+    }
+
+
     public function getAllPeminjaman()
     {
         $this->db->query('SELECT * FROM ' . $this->table);
@@ -24,13 +31,12 @@ class PeminjamanModel
 
     public function tambahPeminjaman($data)
     {
-        $query = "INSERT INTO peminjaman (nama, judul, tanggalpinjam, tanggalkembali, status, jumlah, kelas) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :status, :jumlah, :kelas)";
+        $query = "INSERT INTO peminjaman (nama, judul, tanggalpinjam, tanggalkembali,  jumlah, kelas) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :jumlah, :kelas)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('tanggalpinjam', $data['tanggalpinjam']);
         $this->db->bind('tanggalkembali', $data['tanggalkembali']);
-        $this->db->bind('status', $data['status']);
         $this->db->bind('jumlah', $data['jumlah']);
         $this->db->bind('kelas', $data['kelas']);
         $this->db->execute();
@@ -38,7 +44,7 @@ class PeminjamanModel
     }
     public function cetakPeminjaman()
     {
-        $query = "SELECT nama, judul, tanggalpinjam, tanggalkembali, status, jumlah, kelas FROM peminjaman";
+        $query = "SELECT nama, judul, tanggalpinjam, tanggalkembali,  jumlah, kelas FROM peminjaman";
         $this->db->query($query);
 
         return $this->db->resultSet();
@@ -82,7 +88,6 @@ class PeminjamanModel
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('tanggalpinjam', $data['tanggalpinjam']);
         $this->db->bind('tanggalkembali', $data['tanggalkembali']);
-        $this->db->bind('status', $data['status']);
         $this->db->bind('jumlah', $data['jumlah']);
         $this->db->bind('kelas', $data['kelas']);
         $this->db->bind('id', $data['id']);

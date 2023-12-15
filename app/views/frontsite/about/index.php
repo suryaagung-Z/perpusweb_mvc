@@ -17,7 +17,7 @@
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <h3>PERPUSTAKAAN SEKOLAH MENENGAH PERTAMA PGRI</h3>
             <p class="fst-italic">
-            Selamat datang di Sistem Informasi Perpustakaan SMP PGRI Pangkalan Kerinci, tempat di mana teknologi bertemu dengan pengetahuan dan inspirasi. Kami memandang perpustakaan sebagai pusat pembelajaran, dan melalui sistem informasi ini, kami berkomitmen untuk menciptakan lingkungan literasi yang dinamis dan inklusif.
+            Selamat datang di Sistem Informasi Perpustakaan SMP PGRI Pangkalan Kerinci, tempat di mana teknologi bertemu dengan pengetahuan dan inspirasi. Kami memandang perpustakaan sebagai pusat pembelajaran.
             </p>
             <div class="row">
               <div class="col-lg-6">
