@@ -113,12 +113,6 @@ class Pengguna extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
-                        "nama"   => $_POST['nama'],
-                        "email"  => $_POST['email'],
-                        "status" => $_POST['status'],
-                        "level"  => $_POST['level'],
-                        "tlp"    => $_POST['tlp'],
-
                     ];
 
                     if ($this->model('PenggunaModel')->updatePengguna($data) > 0) {
@@ -135,6 +129,11 @@ class Pengguna extends Controller
                 // Jika tidak ada gambar yang diupload, update data anggota tanpa mengubah foto
                 $data = [
                     "id" => $id,
+                    "nama"   => $_POST['nama'],
+                        "email"  => $_POST['email'],
+                        "status" => $_POST['status'],
+                        "level"  => $_POST['level'],
+                        "tlp"    => $_POST['tlp'],
                     // tambahkan field lain yang perlu diupdate
                 ];
 

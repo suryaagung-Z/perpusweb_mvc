@@ -14,8 +14,8 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a href="<?= BASEURL; ?>/frontsite/home"><strong>Home</strong></a></li>
-        <li><a href="<?= BASEURL; ?>/frontsite/about"><strong>Profil Pustaka</strong></a></li>
-        <li><a href="<?= BASEURL; ?>/frontsite/resume"><strong>Katalog</strong></a></li>
+        <li><a href="<?= BASEURL; ?>/frontsite/profil"><strong>Profil Pustaka</strong></a></li>
+        <li><a href="<?= BASEURL; ?>/frontsite/katalog"><strong>Katalog</strong></a></li>
         <li><a href="<?= BASEURL; ?>/frontsite/contact"><strong>Contact</strong></a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>

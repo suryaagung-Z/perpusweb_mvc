@@ -90,6 +90,30 @@ class Buku extends Controller
             header('location: ' . BASEURL . '/backsite/buku');
             exit;
         }
+        $data = [
+                        "judul"   => $_POST['judul'],
+                        "stok"   => $_POST['stok'],
+                        "kategori"   => $_POST['kategori'],
+                        "rak"   => $_POST['rak'],
+                        "inventaris"   => $_POST['inventaris'],
+                        "tanggal"   => $_POST['tanggal'],
+                        "pengarang"   => $_POST['pengarang'],
+                        "isbn"   => $_POST['isbn'],
+                        "klasifikasi"   => $_POST['klasifikasi'],
+                        "kelas"   => $_POST['kelas'],
+                        "keterangan"   => $_POST['keterangan'],
+                        "kota"   => $_POST['kota'],
+                        "alamat"   => $_POST['alamat'],
+                        "tahunterbit"   => $_POST['tahunterbit'],
+                        "tlp"   => $_POST['tlp'],
+                        "penerbit"   => $_POST['penerbit'],
+        ];
+
+        $bukuModel = $this->model('BukuModel');
+        $bukuModel->tambahBuku($data);
+
+        // Redirect ke halaman katalog di frontsite setelah menambah buku
+        header("Location: " . BASEURL . "/frontsite/katalog");
     }
 
 
@@ -126,22 +150,7 @@ class Buku extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
-                        "judul"   => $_POST['judul'],
-                        "stok"   => $_POST['stok'],
-                        "kategori"   => $_POST['kategori'],
-                        "rak"   => $_POST['rak'],
-                        "inventaris"   => $_POST['inventaris'],
-                        "tanggal"   => $_POST['tanggal'],
-                        "pengarang"   => $_POST['pengarang'],
-                        "isbn"   => $_POST['isbn'],
-                        "klasifikasi"   => $_POST['klasifikasi'],
-                        "kelas"   => $_POST['kelas'],
-                        "keterangan"   => $_POST['keterangan'],
-                        "kota"   => $_POST['kota'],
-                        "alamat"   => $_POST['alamat'],
-                        "tahunterbit"   => $_POST['tahunterbit'],
-                        "tlp"   => $_POST['tlp'],
-                        "penerbit"   => $_POST['penerbit'],
+                       
 
                     ];
 
@@ -159,6 +168,22 @@ class Buku extends Controller
                 // Jika tidak ada gambar yang diupload, update data buku tanpa mengubah foto
                 $data = [
                     "id" => $id,
+                    "judul"   => $_POST['judul'],
+                    "stok"   => $_POST['stok'],
+                    "kategori"   => $_POST['kategori'],
+                    "rak"   => $_POST['rak'],
+                    "inventaris"   => $_POST['inventaris'],
+                    "tanggal"   => $_POST['tanggal'],
+                    "pengarang"   => $_POST['pengarang'],
+                    "isbn"   => $_POST['isbn'],
+                    "klasifikasi"   => $_POST['klasifikasi'],
+                    "kelas"   => $_POST['kelas'],
+                    "keterangan"   => $_POST['keterangan'],
+                    "kota"   => $_POST['kota'],
+                    "alamat"   => $_POST['alamat'],
+                    "tahunterbit"   => $_POST['tahunterbit'],
+                    "tlp"   => $_POST['tlp'],
+                    "penerbit"   => $_POST['penerbit'],
                     // tambahkan field lain yang perlu diupdate
                 ];
 

@@ -113,11 +113,6 @@ class Anggota extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
-                        "nisn"   => $_POST['nisn'],
-                        "nama"  => $_POST['nama'],
-                        "kelas" => $_POST['kelas'],
-                        "jk"  => $_POST['jk'],
-                        "alamat"    => $_POST['alamat'],
 
                     ];
 
@@ -135,6 +130,11 @@ class Anggota extends Controller
                 // Jika tidak ada gambar yang diupload, update data anggota tanpa mengubah foto
                 $data = [
                     "id" => $id,
+                    "nisn"   => $_POST['nisn'],
+                    "nama"  => $_POST['nama'],
+                    "kelas" => $_POST['kelas'],
+                    "jk"  => $_POST['jk'],
+                    "alamat"    => $_POST['alamat'],
                     // tambahkan field lain yang perlu diupdate
                 ];
 

@@ -11,16 +11,16 @@
             <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/bg-card5.png' ?>" alt="bg" id="bg-card" style="z-index: 0;">
             <div class="top" style="position: relative; z-index: 1;">
               <section>
-                <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/jayaraya.png' ?>" alt="jayaraya">
+                <img src="<?= BASEURL . '/public/assets/frontsite/img/logosmppgri.png' ?>" alt="logo">
               </section>
               <section>
                 <h1>kartu anggota perpustakaan</h1>
-                <h2>smp negeri 000 jakarta</h2>
-                <p>Jl. KS.Tubun Raya, Cilandak Jakarta Selatan</p>
+                <h2>smps pgri kab.pelalawan</h2>
+                <p>Jl. Datuk Engku Raja Lela Putra, Pangkalan Kerinci Timur, Kec. Pangkalan Kerinci, Kab. Pelalawan Prov. Riau</p>
                 <p>Telp. ( 021 ) 1234567</p>
               </section>
               <section>
-                <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/tutwuri.png' ?>" alt="jayaraya">
+                <img src="<?= BASEURL . '/public/assets/frontsite/img/pgri12.png' ?>" style="width: 140px; height: auto;">
               </section>
             </div>
             <div class="bottom" style="position: relative; z-index: 1;">
@@ -36,26 +36,26 @@
                       <td><?= $data['anggota']['nama'] ?></td>
                     </tr>
                     <tr>
-                      <td>Kelas</td>
-                      <td>:</td>
-                      <td><?= $data['anggota']['kelas'] ?></td>
-                    </tr>
-                    <tr>
                       <td>NISN</td>
                       <td>:</td>
                       <td><?= $data['anggota']['nisn'] ?></td>
+                    </tr>
+                    <tr>
+                      <td>Kelas</td>
+                      <td>:</td>
+                      <td><?= $data['anggota']['kelas'] ?></td>
                     </tr>
                   </table>
                 </div>
                 <div class="ttd">
                   <div></div>
                   <div style="position: relative;">
-                    <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/stempel.png' ?>" alt="stempel" id="stempel">
+                    <img src="<?= BASEURL . '/public/assets/frontsite/img/stempel.png' ?>" alt="stempel" id="stempel">
 
-                    <p>Jakarta, <span id="current_time"></span></p>
+                    <p>Pkl.Kerinci, <span id="current_time"></span></p>
                     <p>Kepala Sekolah</p>
-                    <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/ttd.png' ?>" alt="ttd" id="ttd">
-                    <p><u>kepala sekolah</u></p>
+                    <img src="<?= BASEURL . '/public/assets/frontsite/img/ttd.png' ?>" alt="ttd" id="ttd">
+                    <p><u>HERMAN SAPUTRA.SE </u></p>
                     <p>NIP. 123456789000000</p>
                   </div>
                 </div>
