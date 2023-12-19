@@ -20,4 +20,22 @@ class Dashboard extends Controller
         $this->view('backsite/templates/footer');
         $this->view('backsite/templates/script');
     }
+
+    public function peminjaman_year()
+    {
+        $postData = file_get_contents("php://input");
+        $data = json_decode($postData, true);
+
+        if ($data && isset($data['year'])) {
+            $year = $data['year'];
+
+            $getByYear = $this->model('PeminjamanModel')->getPeminjamanByYear($year);
+
+            echo json_encode(["result" => $getByYear, "status" => true]);
+            exit;
+        } else {
+            echo json_encode(["result" => [], "status" => false]);
+            exit;
+        }
+    }
 }

@@ -1,11 +1,9 @@
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
-  <div class="alert alert-secondary" role="alert">
-    <marquee behavior="scroll" direction="left">Selamat Datang, Pahlawan Pengetahuan yang Hebat, di Markas Besar Administrator Perpustakaan SMP PGRI Pangkalan Kerinci Kabupaten Pelalawan! Kami Merayakan Kedatangan Anda dengan Sukacita. Bersiaplah Menyelami Samudra Pengetahuan yang Tak Terbatas, Tempat di Mana Setiap Halaman Adalah Petualangan Baru. Jadilah Pelopor yang Menginspirasi, Guardian of Wisdom! Selamat Menjelajah!</marquee>
-</div>
-
-
+    <div class="alert alert-secondary" role="alert">
+      <marquee behavior="scroll" direction="left">Selamat Datang, Pahlawan Pengetahuan yang Hebat, di Markas Besar Administrator Perpustakaan SMP PGRI Pangkalan Kerinci Kabupaten Pelalawan! Kami Merayakan Kedatangan Anda dengan Sukacita. Bersiaplah Menyelami Samudra Pengetahuan yang Tak Terbatas, Tempat di Mana Setiap Halaman Adalah Petualangan Baru. Jadilah Pelopor yang Menginspirasi, Guardian of Wisdom! Selamat Menjelajah!</marquee>
+    </div>
 
     <div class="row">
       <div class="col-lg-3 col-6">
@@ -66,17 +64,151 @@
 
     </div>
 
-    
-
-          <!-- Tabel Data -->
-
-          <!-- /.card-body -->
-         
-          <!-- /.card-footer -->
+    <div class="row">
+      <div class="card col-12 p-0">
+        <div class="card-header bg-info">
+          Grafik perpustakaan (pengunjung) Tahun <span id="tahun">2022</span>
         </div>
-        <!-- /.card -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <select class="custom-select" id="filter-pengunjung-thn" data-limit-tahun="5"></select>
+            </div>
+            <!-- <div class="col-auto">
+              <button class="btn bg-info"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div> -->
+            <div class="col-auto">
+              <button class="btn bg-success" id="resetPengunjung"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent">
+          <canvas id="chart-pengunjung"></canvas>
+        </div>
       </div>
     </div>
   </div>
+  <!-- /.card -->
+  </div>
+  </div>
+  </div>
 </section>
+<script src="<?= BASEURL ?>/assets/backsite/plugins/chart-js/chart.js"></script>
+<script lang="javascript">
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      let VALUES = [];
+
+      // ============== config chart
+      const canvaPengunjung = document.querySelector('#chart-pengunjung');
+      const MONTHS = [
+        'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+      ];
+      const data = {
+        labels: MONTHS,
+        datasets: [{
+          label: 'Pengunjung',
+          data: VALUES,
+          backgroundColor: "rgb(22,167,98)"
+        }]
+      }
+      const myChart = new Chart(canvaPengunjung, {
+        type: 'bar',
+        data: data,
+        options: {
+          plugins: {
+            decimation: {
+              enabled: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZeno: true,
+              ticks: {
+                stepSize: 1
+              }
+            }
+          }
+        }
+      });
+
+
+      // AJAX pengunjung
+      const updateChartPengunjung = (year) => {
+        fetch('<?= BASEURL ?>/backsite/dashboard/peminjaman_year', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              year: year
+            })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            VALUES = Array(12).fill(0);
+            if (data.status && data.result) {
+              data.result.forEach(item => {
+                const bulanIndex = parseInt(item.bulan) - 1;
+                VALUES[bulanIndex] = parseInt(item.jumlah);
+              });
+            }
+            myChart.data.datasets[0].data = VALUES;
+            myChart.update();
+          })
+          .catch(error => {
+            console.error('Ada kesalahan dalam fetch:', error);
+          });
+      }
+
+      // ============== config filter
+      const filterPengunjungThn = document.getElementById('filter-pengunjung-thn');
+      const limitTahun = parseInt(filterPengunjungThn.getAttribute('data-limit-tahun'), 10);
+      const spanTahun = document.getElementById('tahun');
+      const tahunSaatIni = new Date().getFullYear();
+      for (let tahun = tahunSaatIni; tahun >= tahunSaatIni - limitTahun + 1; tahun--) {
+        const option = document.createElement('option');
+        option.value = tahun;
+        option.textContent = tahun;
+        filterPengunjungThn.appendChild(option);
+      }
+      filterPengunjungThn.querySelector('option:first-child').selected = true;
+
+      function updateTahun() {
+        const tahunTerakhir = filterPengunjungThn.value;
+        spanTahun.innerHTML = tahunTerakhir;
+        updateChartPengunjung(tahunTerakhir);
+      }
+      updateTahun();
+      filterPengunjungThn.addEventListener('change', updateTahun);
+
+
+      // ============== Button resetPengunjung
+      const resetPengunjungButton = document.getElementById('resetPengunjung');
+      resetPengunjungButton.addEventListener('click', function() {
+        const tahunSaatIni = new Date().getFullYear();
+        filterPengunjungThn.value = tahunSaatIni;
+        spanTahun.innerHTML = tahunSaatIni;
+        updateChartPengunjung(tahunSaatIni);
+      });
+
+    });
+  })();
+</script>
 <!-- /.content -->

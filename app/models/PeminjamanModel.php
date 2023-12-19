@@ -29,6 +29,13 @@ class PeminjamanModel
         return $this->db->single();
     }
 
+    public function getPeminjamanByYear($year)
+    {
+        $this->db->query('SELECT MONTH(tanggalpinjam) AS bulan, COUNT(*) AS jumlah FROM ' . $this->table . ' WHERE YEAR(tanggalpinjam) = :year GROUP BY MONTH(tanggalpinjam)');
+        $this->db->bind('year', $year);
+        return $this->db->resultSet();
+    }
+
     public function tambahPeminjaman($data)
     {
         $query = "INSERT INTO peminjaman (nama, judul, tanggalpinjam, tanggalkembali,  jumlah, kelas) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :jumlah, :kelas)";
