@@ -1,486 +1,434 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 11:37 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: 127.0.0.1    Database: perpusweb
+-- ------------------------------------------------------
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `perpusweb`
---
-
--- --------------------------------------------------------
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `anggota`
 --
 
+DROP TABLE IF EXISTS `anggota`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `anggota` (
-  `id` int(11) NOT NULL,
-  `foto` varchar(225) NOT NULL,
-  `nisn` varchar(100) NOT NULL,
-  `nama` varchar(20) NOT NULL,
-  `kelas` varchar(100) NOT NULL,
-  `jk` varchar(100) NOT NULL,
-  `alamat` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `foto` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `nisn` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `jk` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `anggota`
 --
 
-INSERT INTO `anggota` (`id`, `foto`, `nisn`, `nama`, `kelas`, `jk`, `alamat`) VALUES
-(42, '657c19bd6c043.jpg', '2201094020', 'SITI NURHALIZA', '9Ab', 'perempuan', 'Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654'),
-(43, '657c19f00bcce.jpeg', '2201094020', 'SITI NURHALIZA', '9c', 'perempuan', 'Jl. Lintas Sumatra No.KM 58, Mekar Jaya, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654');
-
--- --------------------------------------------------------
+LOCK TABLES `anggota` WRITE;
+/*!40000 ALTER TABLE `anggota` DISABLE KEYS */;
+INSERT INTO `anggota` VALUES (43,'657c19f00bcce.jpeg','2201094020','SITI NURHALIZA','9c','perempuan','Jl. Lintas Sumatra No.KM 58, Mekar Jaya, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654'),(44,'657c3cf4a7c14.jpg','567575756','jon','12','laki-laki','jl. jalan');
+/*!40000 ALTER TABLE `anggota` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `buku`
 --
 
+DROP TABLE IF EXISTS `buku`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `buku` (
-  `id` int(11) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `judul` varchar(100) NOT NULL,
-  `stok` int(11) NOT NULL,
-  `kategori` varchar(100) NOT NULL,
-  `rak` varchar(100) NOT NULL,
-  `inventaris` varchar(100) NOT NULL,
-  `tanggal` varchar(100) NOT NULL,
-  `pengarang` varchar(100) NOT NULL,
-  `isbn` varchar(100) NOT NULL,
-  `klasifikasi` varchar(100) NOT NULL,
-  `kelas` varchar(200) NOT NULL,
-  `keterangan` varchar(225) NOT NULL,
-  `kota` varchar(200) NOT NULL,
-  `alamat` varchar(200) NOT NULL,
-  `tahunterbit` int(11) NOT NULL,
-  `tlp` int(11) NOT NULL,
-  `penerbit` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `foto` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `stok` int NOT NULL,
+  `kategori` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rak` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `inventaris` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `pengarang` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `isbn` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `klasifikasi` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `kota` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `tahunterbit` int NOT NULL,
+  `tlp` int NOT NULL,
+  `penerbit` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `buku`
 --
 
-INSERT INTO `buku` (`id`, `foto`, `judul`, `stok`, `kategori`, `rak`, `inventaris`, `tanggal`, `pengarang`, `isbn`, `klasifikasi`, `kelas`, `keterangan`, `kota`, `alamat`, `tahunterbit`, `tlp`, `penerbit`) VALUES
-(13, '657c1be366404.jpg', 'Manajemen Bisnis', 24, 'akademik', 'akademik1', '12a', '15 desember 2023', 'Siti nurhaliza', 'isbn30bisnis', '12abisnis', '12a', 'pelajaran bisnis', 'surabaya', 'jalan sudirman no 30', 2020, 8989786, 'Informatika');
-
--- --------------------------------------------------------
+LOCK TABLES `buku` WRITE;
+/*!40000 ALTER TABLE `buku` DISABLE KEYS */;
+INSERT INTO `buku` VALUES (13,'657c1be366404.jpg','Manajemen Bisnis',24,'akademik','akademik1','12a','15 desember 2023','Siti nurhaliza','isbn30bisnis','12abisnis','12a','pelajaran bisnis','surabaya','jalan sudirman no 30',2020,8989786,'Informatika');
+/*!40000 ALTER TABLE `buku` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `kategori`
 --
 
+DROP TABLE IF EXISTS `kategori`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `kategori` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `keterangan` varchar(225) NOT NULL,
-  `kelas` varchar(100) NOT NULL,
-  `klasifikasi` varchar(220) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `klasifikasi` varchar(220) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id`, `nama`, `keterangan`, `kelas`, `klasifikasi`) VALUES
-(15, 'Resto & Cafe Solitaire', 'photo', '9Av', '123');
-
--- --------------------------------------------------------
+LOCK TABLES `kategori` WRITE;
+/*!40000 ALTER TABLE `kategori` DISABLE KEYS */;
+INSERT INTO `kategori` VALUES (15,'Resto & Cafe Solitaire','photo','9Av','123');
+/*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `laporankembali`
 --
 
+DROP TABLE IF EXISTS `laporankembali`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `laporankembali` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `alamat` varchar(220) NOT NULL,
-  `kelas` varchar(100) NOT NULL,
-  `judul` varchar(100) NOT NULL,
-  `penerbit` varchar(100) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(220) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `penerbit` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `pengarang` date NOT NULL,
   `tanggalpinjam` date NOT NULL,
-  `tanggalkembali` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `tanggalkembali` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `laporankembali`
+--
+
+LOCK TABLES `laporankembali` WRITE;
+/*!40000 ALTER TABLE `laporankembali` DISABLE KEYS */;
+/*!40000 ALTER TABLE `laporankembali` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `login`
 --
 
+DROP TABLE IF EXISTS `login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
-  `username` varchar(225) NOT NULL,
-  `password` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `password`) VALUES
-(2, 'admin@pgri.com', 'adminpgri');
-
--- --------------------------------------------------------
+LOCK TABLES `login` WRITE;
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` VALUES (2,'admin@pgri.com','adminpgri');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `peminjaman`
 --
 
+DROP TABLE IF EXISTS `peminjaman`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `peminjaman` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(225) NOT NULL,
-  `judul` varchar(225) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
   `tanggalpinjam` date NOT NULL,
   `tanggalkembali` date NOT NULL,
-  `jumlah` varchar(100) NOT NULL,
-  `kelas` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `jumlah` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `nama`, `judul`, `tanggalpinjam`, `tanggalkembali`, `jumlah`, `kelas`) VALUES
-(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-01', '2023-12-03', '13', '7'),
-(6, 'siti', 'Algoritma & Pemograman', '2023-11-02', '2023-11-05', '1', '8'),
-(14, 'budi', 'abc', '2023-12-14', '2023-12-16', '2', '12');
-
--- --------------------------------------------------------
+LOCK TABLES `peminjaman` WRITE;
+/*!40000 ALTER TABLE `peminjaman` DISABLE KEYS */;
+INSERT INTO `peminjaman` VALUES (3,'SITI NURHALIZA','Algoritma & Pemograman','2023-11-01','2023-12-03','13','7'),(6,'siti','Algoritma & Pemograman','2023-03-02','2023-11-05','1','8'),(14,'budi','abc','2023-12-14','2023-12-16','2','12'),(16,'ad','sda','2022-12-14','2023-12-14','ads','ds'),(17,'das','ads','2022-12-14','2023-12-14','asd','ads'),(18,'sdf','safd','2021-12-14','2023-12-14','asd','adsda');
+/*!40000 ALTER TABLE `peminjaman` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `penerbit`
 --
 
+DROP TABLE IF EXISTS `penerbit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `penerbit` (
-  `id` int(11) NOT NULL,
-  `keterangan` varchar(225) NOT NULL,
-  `alamat` varchar(220) NOT NULL,
-  `tlp` int(11) NOT NULL,
-  `kota` varchar(220) NOT NULL,
-  `tahunterbit` int(11) NOT NULL,
-  `judul` varchar(200) NOT NULL,
-  `penerbit` varchar(200) NOT NULL,
-  `pengarang` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(220) COLLATE utf8mb4_general_ci NOT NULL,
+  `tlp` int NOT NULL,
+  `kota` varchar(220) COLLATE utf8mb4_general_ci NOT NULL,
+  `tahunterbit` int NOT NULL,
+  `judul` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `penerbit` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `pengarang` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `penerbit`
 --
 
-INSERT INTO `penerbit` (`id`, `keterangan`, `alamat`, `tlp`, `kota`, `tahunterbit`, `judul`, `penerbit`, `pengarang`) VALUES
-(7, 'Tanpa Keterangan', 'Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 2147483647, 'futdf', 2004, 'yyguyfu', 'giyfi', 'chg'),
-(8, 'photo', 'Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 0, '', 0, '', '', ''),
-(14, 'photo', 'Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 2147483647, '', 0, '', '', ''),
-(15, 'photo', 'Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 2147483647, '', 0, '', '', ''),
-(16, 'photo', 'Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654', 2147483647, '', 0, '', '', ''),
-(18, '', '', 0, '', 0, '', '', '');
-
--- --------------------------------------------------------
+LOCK TABLES `penerbit` WRITE;
+/*!40000 ALTER TABLE `penerbit` DISABLE KEYS */;
+INSERT INTO `penerbit` VALUES (7,'Tanpa Keterangan','Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654',2147483647,'futdf',2004,'yyguyfu','giyfi','chg'),(8,'photo','Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654',0,'',0,'','',''),(14,'photo','Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654',2147483647,'',0,'','',''),(15,'photo','Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654',2147483647,'',0,'','',''),(16,'photo','Jl. Maharaja Indra, Pangkalan Kerinci Kota, Kec. Pangkalan Kerinci, Kabupaten Pelalawan, Riau 28654',2147483647,'',0,'','',''),(18,'','',0,'',0,'','','');
+/*!40000 ALTER TABLE `penerbit` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pengadaan`
 --
 
+DROP TABLE IF EXISTS `pengadaan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pengadaan` (
-  `id` int(11) NOT NULL,
-  `tanggal` varchar(100) NOT NULL,
-  `judul` varchar(225) NOT NULL,
-  `asal` varchar(225) NOT NULL,
-  `jumlah` varchar(225) NOT NULL,
-  `keterangan` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tanggal` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `asal` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `jumlah` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `pengadaan`
 --
 
-INSERT INTO `pengadaan` (`id`, `tanggal`, `judul`, `asal`, `jumlah`, `keterangan`) VALUES
-(1, '12-01-20023', 'Jurnal Of Computer', 'Bandung', '13', '-');
-
--- --------------------------------------------------------
+LOCK TABLES `pengadaan` WRITE;
+/*!40000 ALTER TABLE `pengadaan` DISABLE KEYS */;
+INSERT INTO `pengadaan` VALUES (1,'12-01-20023','Jurnal Of Computer','Bandung','13','-');
+/*!40000 ALTER TABLE `pengadaan` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pengembalian`
 --
 
+DROP TABLE IF EXISTS `pengembalian`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pengembalian` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(225) NOT NULL,
-  `judul` varchar(225) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `judul` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
   `tanggalpinjam` date NOT NULL,
   `tanggalkembali` date NOT NULL,
-  `kembali` text NOT NULL,
-  `jumlah` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `kelas` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `kembali` text COLLATE utf8mb4_general_ci NOT NULL,
+  `jumlah` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `kelas` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `pengembalian`
 --
 
-INSERT INTO `pengembalian` (`id`, `nama`, `judul`, `tanggalpinjam`, `tanggalkembali`, `kembali`, `jumlah`, `status`, `kelas`) VALUES
-(2, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-26', '2023-12-01', '2023-11-30', '1', 'Dikembalikan', ''),
-(3, 'SITI NURHALIZA', 'Algoritma & Pemograman', '2023-11-28', '2023-12-02', '2023-12-17', '1', 'admin', ''),
-(13, 'testing 1', 'sejarah dunia yang disembunyikan', '2023-12-03', '2023-12-16', '2023-12-13', '1', 'dikembalikan', '10'),
-(14, '', '', '0000-00-00', '0000-00-00', '2023-12-15', '', 'dikembalikan', '');
-
--- --------------------------------------------------------
+LOCK TABLES `pengembalian` WRITE;
+/*!40000 ALTER TABLE `pengembalian` DISABLE KEYS */;
+INSERT INTO `pengembalian` VALUES (2,'SITI NURHALIZA','Algoritma & Pemograman','2023-11-26','2023-12-01','2023-11-30','1','Dikembalikan',''),(3,'SITI NURHALIZA','Algoritma & Pemograman','2023-11-28','2023-12-02','2023-12-17','1','admin',''),(13,'testing 1','sejarah dunia yang disembunyikan','2023-12-03','2023-12-16','2023-12-13','1','dikembalikan','10'),(14,'','','0000-00-00','0000-00-00','2023-12-15','','dikembalikan','');
+/*!40000 ALTER TABLE `pengembalian` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pengguna`
 --
 
+DROP TABLE IF EXISTS `pengguna`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pengguna` (
-  `id` int(11) NOT NULL,
-  `foto` varchar(256) NOT NULL,
-  `nama` varchar(225) NOT NULL,
-  `email` varchar(225) NOT NULL,
-  `status` varchar(225) NOT NULL,
-  `level` varchar(225) NOT NULL,
-  `tlp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `foto` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `level` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `tlp` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `foto`, `nama`, `email`, `status`, `level`, `tlp`) VALUES
-(9, '657c152878d9b.jpeg', 'budi', 'budi@gmail.com', 'aktif', 'murid', 234666456),
-(10, '657b0046931b0.png', 'dina', 'dina@gmail.com', 'aktif', 'guru', 435111345),
-(13, '657c1e95456f9.jpeg', 'SITI NURHALIZA', 'sn613819@gmail.com', 'aktif', 'guru', 2147483647);
-
--- --------------------------------------------------------
+LOCK TABLES `pengguna` WRITE;
+/*!40000 ALTER TABLE `pengguna` DISABLE KEYS */;
+INSERT INTO `pengguna` VALUES (9,'657c152878d9b.jpeg','budi','budi@gmail.com','aktif','murid',234666456),(10,'657b0046931b0.png','dina','dina@gmail.com','aktif','guru',435111345),(13,'657c1e95456f9.jpeg','SITI NURHALIZA','sn613819@gmail.com','aktif','guru',2147483647);
+/*!40000 ALTER TABLE `pengguna` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pengguna1`
 --
 
+DROP TABLE IF EXISTS `pengguna1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pengguna1` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `foto` varchar(220) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `tlp` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `level` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `foto` varchar(220) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `tlp` int NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `level` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `pengguna1`
 --
 
-INSERT INTO `pengguna1` (`id`, `nama`, `foto`, `email`, `tlp`, `status`, `level`) VALUES
-(1, 'SITI', '12.jpg', 'sn301620@gmail.com', 2147483647, 'aktif', 'admin'),
-(2, 'SITI NURHALIZA', 'aku.jpeg', 'sn613819@gmail.com', 2147483647, 'aktif', 'admin'),
-(3, 'SITI NURHALIZA', 'image.jpg', 'sn613819@gmail.com', 2147483647, 'aktif', '0');
-
--- --------------------------------------------------------
+LOCK TABLES `pengguna1` WRITE;
+/*!40000 ALTER TABLE `pengguna1` DISABLE KEYS */;
+INSERT INTO `pengguna1` VALUES (1,'SITI','12.jpg','sn301620@gmail.com',2147483647,'aktif','admin'),(2,'SITI NURHALIZA','aku.jpeg','sn613819@gmail.com',2147483647,'aktif','admin'),(3,'SITI NURHALIZA','image.jpg','sn613819@gmail.com',2147483647,'aktif','0');
+/*!40000 ALTER TABLE `pengguna1` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rak`
 --
 
+DROP TABLE IF EXISTS `rak`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rak` (
-  `id` int(11) NOT NULL,
-  `nomor` varchar(100) NOT NULL,
-  `nama` varchar(225) NOT NULL,
-  `keterangan` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nomor` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `keterangan` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `rak`
 --
 
-INSERT INTO `rak` (`id`, `nomor`, `nama`, `keterangan`) VALUES
-(1, 'rak11', 'novel', 'photo'),
-(2, 'novelkuuu12', 'siti', 'photo'),
-(4, 'novelkuuu', 'Resto & Cafe Solitaire', 'photok');
-
--- --------------------------------------------------------
+LOCK TABLES `rak` WRITE;
+/*!40000 ALTER TABLE `rak` DISABLE KEYS */;
+INSERT INTO `rak` VALUES (1,'rak11','novel','photo'),(2,'novelkuuu12','siti','photo'),(4,'novelkuuu','Resto & Cafe Solitaire','photok');
+/*!40000 ALTER TABLE `rak` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `regis`
 --
 
+DROP TABLE IF EXISTS `regis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `regis` (
-  `nama` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `no` int(11) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `no` int NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `regis`
 --
 
---
--- Indexes for table `anggota`
---
-ALTER TABLE `anggota`
-  ADD PRIMARY KEY (`id`);
+LOCK TABLES `regis` WRITE;
+/*!40000 ALTER TABLE `regis` DISABLE KEYS */;
+/*!40000 ALTER TABLE `regis` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Indexes for table `buku`
---
-ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `laporankembali`
---
-ALTER TABLE `laporankembali`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `peminjaman`
---
-ALTER TABLE `peminjaman`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `penerbit`
---
-ALTER TABLE `penerbit`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pengadaan`
---
-ALTER TABLE `pengadaan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pengembalian`
---
-ALTER TABLE `pengembalian`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pengguna`
---
-ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pengguna1`
---
-ALTER TABLE `pengguna1`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rak`
---
-ALTER TABLE `rak`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Table structure for table `struktur_organisasi`
 --
 
---
--- AUTO_INCREMENT for table `anggota`
---
-ALTER TABLE `anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+DROP TABLE IF EXISTS `struktur_organisasi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `struktur_organisasi` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `jabatan` varchar(128) DEFAULT NULL,
+  `nama` varchar(128) NOT NULL,
+  `parent_key` varchar(128) DEFAULT NULL,
+  `image` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- AUTO_INCREMENT for table `buku`
+-- Dumping data for table `struktur_organisasi`
 --
-ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
---
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+LOCK TABLES `struktur_organisasi` WRITE;
+/*!40000 ALTER TABLE `struktur_organisasi` DISABLE KEYS */;
+INSERT INTO `struktur_organisasi` VALUES (1,'penanggung jawab','kepala smps pgri','herman saputra .se.',NULL,'logosmppgri.png'),(2,'kurikulum',NULL,'nur a sni s.pd.','1','logosmppgri.png'),(3,'bendahara',NULL,'marlina s.pd.','1','logosmppgri.png'),(4,'kesiswaan',NULL,'linda marlina dewi s.pd.','1','logosmppgri.png'),(5,'kepala perpustakaan',NULL,'lina marlina dewi s.pd.','2','logosmppgri.png'),(6,'teknisi pustaka',NULL,'muhammad hakim','5','logosmppgri.png'),(7,'operator pustaka',NULL,'nita nurasih s.pd.','5','logosmppgri.png');
+/*!40000 ALTER TABLE `struktur_organisasi` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- AUTO_INCREMENT for table `laporankembali`
---
-ALTER TABLE `laporankembali`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `peminjaman`
---
-ALTER TABLE `peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `penerbit`
---
-ALTER TABLE `penerbit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `pengadaan`
---
-ALTER TABLE `pengadaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `pengembalian`
---
-ALTER TABLE `pengembalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `pengguna`
---
-ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `pengguna1`
---
-ALTER TABLE `pengguna1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `rak`
---
-ALTER TABLE `rak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-12-22 20:47:16
