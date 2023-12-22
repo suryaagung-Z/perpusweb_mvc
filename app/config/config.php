@@ -1,5 +1,5 @@
 <?php
-define('BASEURL', 'http://localhost:8880/perpusweb');
+define('BASEURL', 'http://localhost/perpusweb');
 define('ROOT_SEGMENT', '/perpusweb');
 define('PATH_FOTO_PROFILE', '/public/assets/frontsite/img/foto_profile/');
 

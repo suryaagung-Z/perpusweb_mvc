@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Perpustakaan Smp Pgri</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="<?= BASEURL; ?>/assets/frontsite/img/LOGO SMP PGRI.png" rel="icon">
-  <link href="<?= BASEURL; ?>/assets/frontsite/img/LOGO SMP PGRI.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?= BASEURL; ?>/assets/frontsite/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="<?= BASEURL; ?>/assets/frontsite/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Kelly
-  * Updated: Jul 27 2023 with Bootstrap v5.3.1
-  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Perpustakaan Smps Pgri</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="<?=BASEURL;?>/assets/frontsite/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="<?=BASEURL;?>/assets/frontsite/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="<?=BASEURL;?>/assets/frontsite/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="<?=BASEURL;?>/assets/frontsite/img/LOGO SMP PGRI.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="<?=BASEURL;?>/assets/frontsite/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>

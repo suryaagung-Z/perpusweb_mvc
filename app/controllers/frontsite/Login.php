@@ -5,9 +5,8 @@ class Login extends Controller
     {
         $data['title'] = 'Login';
         $this->view('frontsite/templates/style', $data);
-        $this->view('frontsite/templates/header', $data);
+      
         $this->view('frontsite/login/index', $data);
-        $this->view('frontsite/templates/footer');
         $this->view('frontsite/templates/script');
     }
 

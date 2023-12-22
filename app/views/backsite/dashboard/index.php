@@ -67,7 +67,7 @@
     <div class="row">
       <div class="card col-12 p-0">
         <div class="card-header bg-info">
-          Grafik perpustakaan (pengunjung) Tahun <span id="tahun">2022</span>
+          Grafik perpustakaan (Peminjaman) Tahun <span id="tahun">2022</span>
         </div>
         <div class="card-body">
           <div class="row">
@@ -118,7 +118,7 @@
       const data = {
         labels: MONTHS,
         datasets: [{
-          label: 'Pengunjung',
+          label: 'Peminjaman',
           data: VALUES,
           backgroundColor: "rgb(22,167,98)"
         }]

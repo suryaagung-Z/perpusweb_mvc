@@ -6,16 +6,8 @@
         <?php Flasher::Message(); ?>
         <main id="main">
             <!-- ======= Contact Section ======= -->
-            <section id="login" class="login">
-                <div class="container" data-aos="fade-up">
-                    <style>
-                        body {
-                            background-image: url("<?= BASEURL; ?>/assets/frontsite/img/buku1.jpg");
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            background-attachment: fixed;
-                        }
-                    </style>
+            <<div class="about_section layout_padding margin_top90">
+         <div class="container">
                     <style>
                         body {
                             background-color: #f8f9fc;

@@ -47,7 +47,7 @@
                   <th>Tanggal Pengembalian</th>
                   <th>Tanggal Dikembalikan</th>
                   <th>Jumlah</th>
-                  <th>Status</th>
+                 
                 </tr>
               </thead>
               <tbody>
@@ -65,7 +65,7 @@
                                         <td><?= $row['tanggalkembali']; ?></td>
                                         <td><?= $row['kembali']; ?></td>
                                         <td><?= $row['jumlah']; ?></td>
-                                        <td><?= $row['status']; ?></td>
+                                      
                   </tr>
                   <?php
                   $no++;

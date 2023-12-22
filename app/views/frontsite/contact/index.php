@@ -1,14 +1,94 @@
-<main id="main">
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Contact</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="<?=BASEURL;?>/assets/frontsite/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="<?=BASEURL;?>/assets/frontsite/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="<?=BASEURL;?>/assets/frontsite/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="<?=BASEURL;?>/assets/frontsite/img/fevicon.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="<?=BASEURL;?>/assets/frontsite/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>
+   <body>
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"><img src="<?=BASEURL;?>/assets/frontsite/img/logoku.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                  <li class="nav-item ">
+                        <a class="nav-link" href="<?=BASEURL;?>/frontsite/home">home</a>
+                     </li>
+                     <li class="nav-item ">
+                        <a class="nav-link" href="<?=BASEURL;?>/frontsite/profil">profil</a>
+                     </li>
+                     <li class="nav-item ">
+                        <a class="nav-link" href="<?=BASEURL;?>/frontsite/katalog">katalog</a>
+                     </li>
+                     <li class="nav-item active ">
+                        <a class="nav-link" href="<?=BASEURL;?>/frontsite/contact">contact</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="login_bt">
+                        <ul>
+                        <li><a href="<?=BASEURL;?>/frontsite/login"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                        </ul>
+                     </div>
+                  </form>
+               </div>
+            </nav>
+         </div>
+      </div>
+ <!-- contact section start -->
+ <div class="contact_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="contact_taital">Smps Pgri Kab.Pelalawan</h1>
+               </div>
+            </div>
+            <style>
+  .section-title {
+    text-align: center;
+  }
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
+  .address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+</style>
 
-        <div class="section-title">
-        <div class="address">
-                <i class="bi bi-geo-alt"> <p>Jl. Datuk Engku Raja Lela Putra, Pangkalan Kerinci Timur, Kec. Pangkalan Kerinci, Kab. Pelalawan Prov. Riau</p> </i>
-              </div>
-        </div>
+<div class="section-title">
+  <div class="address">
+    <i class="bi bi-geo-alt"></i>
+    <p>Jl. Datuk Engku Raja Lela Putra, Pangkalan Kerinci Timur, Kec. Pangkalan Kerinci, Kab. Pelalawan Prov. Riau</p>
+  </div>
+</div>
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
@@ -73,41 +153,9 @@ icon:myIcon
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map) }
 </script>
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="center-container">
-            <div class="col-lg-4">
-                <div class="info">
-                    <div class="contact-item email">
-                        <i class="bi bi-envelope"></i>
-                        <h4>Email:</h4>
-                        <p>info@example.com</p>
-                    </div>
-
-                    <div class="contact-item phone">
-                        <i class="bi bi-phone"></i>
-                        <h4>Call:</h4>
-                        <p>+1 5589 55488 55</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-          </div>
-
-         
-
-        </div>
-
+         </div>
       </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
+      <!-- contact section end -->
+         </div>
+      </div>
+      <!-- contact section end -->

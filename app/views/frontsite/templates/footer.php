@@ -1,15 +1,42 @@
- <!-- ======= Footer ======= -->
- <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-       <strong><span>Perpustakaan</span></strong>. 
+  <!-- footer section start -->
+  <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="footer_logo">
+                  <a href="indexz.html">
+                     <img src="<?=BASEURL;?>/assets/frontsite/img/logoku1.png">
+               </div>
+               <div class="social_icon">
+               <ul>
+               <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+               </ul>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
-       <a href="https://bootstrapmade.com/">Smp Pgri Pangkalan Kerinci Kab.Pelalawan</a>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">Perpustakaan Smps Pgri Kab.Pelalawan</a></p>
+         </div>
       </div>
-    </div>
-  </footer><!-- End  Footer -->
+      <!-- copyright section end -->
+    
