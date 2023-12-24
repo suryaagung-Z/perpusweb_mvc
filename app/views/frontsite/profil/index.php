@@ -225,7 +225,8 @@
 
                 chart.draw(data, {
                     'allowHtml': true,
-                    'size': 'large'
+                    'size': 'large',
+                    'allowCollapse': true
                 });
 
             }
