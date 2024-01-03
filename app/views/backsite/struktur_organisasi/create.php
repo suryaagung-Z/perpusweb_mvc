@@ -44,8 +44,15 @@
                         <td><input type="text" class="form-control" name="jabatan"></td>
                       </tr>
                       <tr>
-                      <td class="fw-bold" width="130">parent_key</td>
-                        <td><input type="number" class="form-control" name="parent_key"></td>
+                        <td class="fw-bold" width="130">parent_key</td>
+                        <td>
+                          <select class="form-control" name="parent_key">
+                            <option selected disabled>--choose---</option>
+                            <?php foreach ($data['tree_parent'] as $tree) { ?>
+                              <option value="<?= $tree['id'] ?>"><?= $tree['id'] . " - " . $tree['nama'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </td>
                       <tr>
                         <td colspan="2">
                           <button type="submit" class="btn btn-primary" name="proses">Simpan Data</button>

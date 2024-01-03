@@ -18,11 +18,12 @@ class Struktur_Organisasi extends Controller
     public function create()
     {
         $data['title'] = 'Struktur_Organisasi';
+        $data['tree_parent'] = $this->model('Struktur_OrganisasiModel')->getAllOnly_id_name();
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
         $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/struktur_organisasi/create');
+        $this->view('backsite/struktur_organisasi/create', $data);
         $this->view('backsite/templates/footer');
         $this->view('backsite/templates/script');
     }
@@ -83,6 +84,7 @@ class Struktur_Organisasi extends Controller
     {
         $data['title'] = 'Struktur_Organisasi';
         $data['struktur_organisasi'] = $this->model('Struktur_OrganisasiModel')->getStruktur_OrganisasiById($id);
+        $data['tree_parent'] = $this->model('Struktur_OrganisasiModel')->getAllOnly_id_name();
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
@@ -96,27 +98,24 @@ class Struktur_Organisasi extends Controller
     {
         if (isset($_POST['proses'])) {
             $id = $_POST['id'];
-            $namaFile = $_FILES['foto']['name'];
-            $ukuranFile = $_FILES['foto']['size'];
-            $error = $_FILES['foto']['error'];
-            $tmpName = $_FILES['foto']['tmp_name'];
+            $namaFile = $_FILES['foto_baru']['name'];
+            $ukuranFile = $_FILES['foto_baru']['size'];
+            $error = $_FILES['foto_baru']['error'];
+            $tmpName = $_FILES['foto_baru']['tmp_name'];
 
             // Cek apakah ada gambar yang diupload
             if ($ukuranFile > 0) {
                 // Proses update gambar
                 $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
-                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_CHART_ORG . $namaFileBaru;
 
                 if (move_uploaded_file($tmpName, $tujuan)) {
-                    // Update data anggota dengan foto baru
                     $data = [
-                        "id" => $id,
-                        "foto" => $namaFileBaru,
-                        "jabatan"   => $_POST['jabatan'],
-                        "nama"   => $_POST['nama'],
-                        "parent_key"   => $_POST['parent_key'],
-                       
-
+                        "id"         => $id,
+                        "foto"       => $namaFileBaru,
+                        "jabatan"    => $_POST['jabatan'],
+                        "nama"       => $_POST['nama'],
+                        "parent_key" => $_POST['parent_key'],
                     ];
 
                     if ($this->model('Struktur_OrganisasiModel')->updateStruktur_Organisasi($data) > 0) {
@@ -133,6 +132,7 @@ class Struktur_Organisasi extends Controller
                 // Jika tidak ada gambar yang diupload, update data buku tanpa mengubah foto
                 $data = [
                     "id" => $id,
+                    "foto"       => $_POST['foto_lama'],
                     "jabatan"   => $_POST['jabatan'],
                     "nama"   => $_POST['nama'],
                     "parent_key"   => $_POST['parent_key'],

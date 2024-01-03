@@ -66,7 +66,7 @@
 
     <div class="row">
       <div class="card col-12 p-0">
-        <div class="card-header bg-info">
+        <div class="card-header bg-warning">
           Grafik perpustakaan (Peminjaman) Tahun <span id="tahun">2022</span>
         </div>
         <div class="card-body">
@@ -78,7 +78,7 @@
               <button class="btn bg-info"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div> -->
             <div class="col-auto">
-              <button class="btn bg-success" id="resetPengunjung"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+              <button class="btn bg-warning" id="resetPengunjung"><i class="fa-solid fa-arrow-rotate-right"></i></button>
             </div>
           </div>
         </div>
@@ -97,8 +97,6 @@
 <script lang="javascript">
   (function() {
     document.addEventListener('DOMContentLoaded', function() {
-      let VALUES = [];
-
       // ============== config chart
       const canvaPengunjung = document.querySelector('#chart-pengunjung');
       const MONTHS = [
@@ -115,17 +113,16 @@
         'November',
         'Desember'
       ];
-      const data = {
-        labels: MONTHS,
-        datasets: [{
-          label: 'Peminjaman',
-          data: VALUES,
-          backgroundColor: "rgb(22,167,98)"
-        }]
-      }
       const myChart = new Chart(canvaPengunjung, {
         type: 'bar',
-        data: data,
+        data: {
+          labels: MONTHS,
+          datasets: [{
+            label: 'Peminjaman',
+            data: [],
+            backgroundColor: "rgba(255,193,7,1)"
+          }]
+        },
         options: {
           plugins: {
             decimation: {

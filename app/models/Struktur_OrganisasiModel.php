@@ -14,6 +14,13 @@ class Struktur_OrganisasiModel
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
+
+    public function getAllOnly_id_name()
+    {
+        $this->db->query('SELECT id, nama FROM ' . $this->table);
+        return $this->db->resultSet();
+    }
+
     public function tambahStruktur_Organisasi($data)
     {
         $query = "INSERT INTO struktur_organisasi (foto, jabatan, parent_key, nama ) VALUES (:foto,  :jabatan, :parent_key, :nama )";
@@ -33,8 +40,9 @@ class Struktur_OrganisasiModel
         return $this->db->single(); // Assuming you have a method like 'single()' in your Database class
     }
 
-    public function updateRak($data) {
-        $query = "UPDATE struktur_organisasi SET foto=:foto, nama=:nama, jabatan=:jabatan, parent_key=:parent_key WHERE id=:id";
+    public function updateStruktur_Organisasi($data)
+    {
+        $query = "UPDATE struktur_organisasi SET image=:foto, nama=:nama, jabatan=:jabatan, parent_key=:parent_key WHERE id=:id";
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
         $this->db->bind('nama', $data['nama']);
@@ -45,9 +53,10 @@ class Struktur_OrganisasiModel
         return $this->db->rowCount();
     }
 
-    
 
-    public function deleteStruktur_Organisasi($id) {
+
+    public function deleteStruktur_Organisasi($id)
+    {
         $this->db->query('DELETE FROM ' . $this->table . ' WHERE id=:id');
         $this->db->bind('id', $id);
         $this->db->execute();
@@ -63,5 +72,3 @@ class Struktur_OrganisasiModel
         return $this->db->resultSet();
     }
 }
-
-
