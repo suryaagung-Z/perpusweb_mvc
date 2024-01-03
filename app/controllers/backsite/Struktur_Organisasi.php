@@ -1,41 +1,28 @@
 <?php
-class Anggota extends Controller
+class Struktur_Organisasi extends Controller
 {
     public function index()
     {
-        $data['title'] = 'Anggota';
-        $data['anggota'] = $this->model('AnggotaModel')->getAllAnggota();
+        $data['title'] = 'Struktur Organisasi Smps Pgri Kab.Pelalawan';
+        $data['struktur_organisasi'] = $this->model('Struktur_OrganisasiModel')->getAll();
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
         $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/anggota/index', $data);
+        $this->view('backsite/struktur_organisasi/index', $data);
         $this->view('backsite/templates/footer');
         $this->view('backsite/templates/script');
     }
 
-    public function search()
-    {
-        $data['title'] = 'Anggota';
-        $data['anggota'] = $this->model('AnggotaModel')->cariAnggota();
-        $data['key'] = $_POST['key'];
-        $this->view('backsite/templates/style', $data);
-        $this->view('backsite/templates/header', $data);
-        $this->view('backsite/templates/sidebar', $data);
-        $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/anggota/index', $data);
-        $this->view('backsite/templates/footer');
-        $this->view('backsite/templates/script');
-    }
 
     public function create()
     {
-        $data['title'] = 'Anggota';
+        $data['title'] = 'Struktur_Organisasi';
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
         $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/anggota/create');
+        $this->view('backsite/struktur_organisasi/create');
         $this->view('backsite/templates/footer');
         $this->view('backsite/templates/script');
     }
@@ -50,7 +37,7 @@ class Anggota extends Controller
 
             if ($ukuranFile > 1000000) {
                 Flasher::setMessage('Gagal', 'disimpan, Ukuran file melebihi 1 MB', 'danger');
-                header('location: ' . BASEURL . '/backsite/Anggota');
+                header('location: ' . BASEURL . '/backsite/struktur_organisasi');
                 exit;
             }
 
@@ -59,36 +46,48 @@ class Anggota extends Controller
                 $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
 
                 if (move_uploaded_file($tmpName, $tujuan)) {
-                    if ($this->model('AnggotaModel')->tambahAnggota([
+                    if ($this->model('Struktur_OrganisasiModel')->tambahStruktur_Organisasi([
                         "foto"   => $namaFileBaru,
-                        "nisn"   => $_POST['nisn'],
-                        "nama"  => $_POST['nama'],
-                        "kelas" => $_POST['kelas'],
-                        "jk"  => $_POST['jk'],
-                        "alamat"    => $_POST['alamat'],
+                        "jabatan"   => $_POST['jabatan'],
+                        "nama"   => $_POST['nama'],
+                        "parent_key"   => $_POST['parent_key'],
+
+
                     ]) > 0) {
                         Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-                        header('location: ' . BASEURL . '/backsite/Anggota');
+                        header('location: ' . BASEURL . '/backsite/struktur_organisasi');
                         exit;
                     }
                 }
             }
             Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-            header('location: ' . BASEURL . '/backsite/Anggota');
+            header('location: ' . BASEURL . '/backsite/struktur_organisasi');
             exit;
         }
+        $data = [
+
+            "jabatan"   => $_POST['jabatan'],
+            "nama"   => $_POST['nama'],
+            "parent_key"   => $_POST['parent_key'],
+        ];
+
+        $Struktur_OrganisasiModel = $this->model('Struktur_OrganisasiModel');
+        $Struktur_OrganisasiModel->tambahStruktur_Organisasi($data);
+
+        // Redirect ke halaman katalog di frontsite setelah menambah buku
+        header("Location: " . BASEURL . "/frontsite/profil");
     }
 
 
     public function edit($id)
     {
-        $data['title'] = 'Anggota';
-        $data['anggota'] = $this->model('AnggotaModel')->getAnggotaById($id);
+        $data['title'] = 'Struktur_Organisasi';
+        $data['struktur_organisasi'] = $this->model('Struktur_OrganisasiModel')->getStruktur_OrganisasiById($id);
         $this->view('backsite/templates/style', $data);
         $this->view('backsite/templates/header', $data);
         $this->view('backsite/templates/sidebar', $data);
         $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/anggota/edit', $data);
+        $this->view('backsite/struktur_organisasi/edit', $data);
         $this->view('backsite/templates/footer');
         $this->view('backsite/templates/script');
     }
@@ -113,71 +112,55 @@ class Anggota extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
-                        "nisn"   => $_POST['nisn'],
-                    "nama"  => $_POST['nama'],
-                    "kelas" => $_POST['kelas'],
-                    "jk"  => $_POST['jk'],
-                    "alamat"    => $_POST['alamat'],
+                        "jabatan"   => $_POST['jabatan'],
+                        "nama"   => $_POST['nama'],
+                        "parent_key"   => $_POST['parent_key'],
+                       
 
                     ];
 
-                    if ($this->model('AnggotaModel')->updateAnggota($data) > 0) {
+                    if ($this->model('Struktur_OrganisasiModel')->updateStruktur_Organisasi($data) > 0) {
                         Flasher::setMessage('Berhasil', 'diupdate', 'success');
-                        header('location: ' . BASEURL . '/backsite/anggota');
+                        header('location: ' . BASEURL . '/backsite/struktur_organisasi');
                         exit;
                     }
                 } else {
                     Flasher::setMessage('Gagal', 'Update foto', 'danger');
-                    header('location: ' . BASEURL . '/backsite/anggota/edit/' . $id);
+                    header('location: ' . BASEURL . '/backsite/struktur_organisasi/edit/' . $id);
                     exit;
                 }
             } else {
-                // Jika tidak ada gambar yang diupload, update data anggota tanpa mengubah foto
+                // Jika tidak ada gambar yang diupload, update data buku tanpa mengubah foto
                 $data = [
                     "id" => $id,
-                    "nisn"   => $_POST['nisn'],
-                    "nama"  => $_POST['nama'],
-                    "kelas" => $_POST['kelas'],
-                    "jk"  => $_POST['jk'],
-                    "alamat"    => $_POST['alamat'],
+                    "jabatan"   => $_POST['jabatan'],
+                    "nama"   => $_POST['nama'],
+                    "parent_key"   => $_POST['parent_key'],
                     // tambahkan field lain yang perlu diupdate
                 ];
 
-                if ($this->model('AnggotaModel')->updateAnggota($data) > 0) {
+                if ($this->model('Struktur_OrganisasiModel')->updateStruktur_Organisasi($data) > 0) {
                     Flasher::setMessage('Berhasil', 'diupdate', 'success');
-                    header('location: ' . BASEURL . '/backsite/anggota');
+                    header('location: ' . BASEURL . '/backsite/struktur_organisasi');
                     exit;
                 } else {
                     Flasher::setMessage('Gagal', 'diupdate', 'danger');
-                    header('location: ' . BASEURL . '/backsite/anggota/edit/' . $id);
+                    header('location: ' . BASEURL . '/backsite/struktur_organisasi/edit/' . $id);
                     exit;
                 }
             }
         }
     }
-
     public function deploy($id)
     {
-        if ($this->model('AnggotaModel')->deleteAnggota($id) > 0) {
+        if ($this->model('Struktur_OrganisasiModel')->deleteStruktur_Organisasi($id) > 0) {
             Flasher::setMessage('Berhasil', 'dihapus', 'success');
-            header('location: ' . BASEURL . '/backsite/anggota');
+            header('location: ' . BASEURL . '/backsite/struktur_organisasi');
             exit;
         } else {
             Flasher::setMessage('Gagal', 'dihapus', 'danger');
-            header('location: ' . BASEURL . '/backsite/anggota');
+            header('location: ' . BASEURL . '/backsite/struktur_organisasi');
             exit;
         }
-    }
-
-    public function print($id)
-    {
-        $data['title'] = 'Anggota';
-        $data['anggota'] = $this->model('AnggotaModel')->getAnggotaById($id);
-        $this->view('backsite/templates/style', $data);
-        $this->view('backsite/templates/header', $data);
-        $this->view('backsite/templates/sidebar', $data);
-        $this->view('backsite/templates/breadcrumb', $data);
-        $this->view('backsite/anggota/cetak', $data);
-        $this->view('backsite/templates/script');
     }
 }

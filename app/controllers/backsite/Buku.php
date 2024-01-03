@@ -150,6 +150,22 @@ class Buku extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
+                        "judul"   => $_POST['judul'],
+                    "stok"   => $_POST['stok'],
+                    "kategori"   => $_POST['kategori'],
+                    "rak"   => $_POST['rak'],
+                    "inventaris"   => $_POST['inventaris'],
+                    "tanggal"   => $_POST['tanggal'],
+                    "pengarang"   => $_POST['pengarang'],
+                    "isbn"   => $_POST['isbn'],
+                    "klasifikasi"   => $_POST['klasifikasi'],
+                    "kelas"   => $_POST['kelas'],
+                    "keterangan"   => $_POST['keterangan'],
+                    "kota"   => $_POST['kota'],
+                    "alamat"   => $_POST['alamat'],
+                    "tahunterbit"   => $_POST['tahunterbit'],
+                    "tlp"   => $_POST['tlp'],
+                    "penerbit"   => $_POST['penerbit'],
                        
 
                     ];

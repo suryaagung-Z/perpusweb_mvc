@@ -146,8 +146,7 @@
                         <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
                      </div>
                      <div class="box_right">
-                        <p class="book_text">Book At</p>
-                        <h4 class="appoinment_text">Appoinment</h4>
+                        <h4 class="appoinment_text">BOOK</h4>
                      </div>
                   </div>
                </div>
@@ -157,8 +156,8 @@
                         <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
                      </div>
                      <div class="box_right">
-                        <p class="book_text active">Get Free</p>
-                        <h4 class="appoinment_text active"> Evalution</h4>
+                       
+                        <h4 class="appoinment_text active"> BOOK</h4>
                      </div>
                   </div>
                </div>
@@ -168,8 +167,8 @@
                         <div class="right_arrow"><i class="fa fa-arrow-right"></i></div>
                      </div>
                      <div class="box_right">
-                        <p class="book_text">Pay Invoice</p>
-                        <h4 class="appoinment_text">Online</h4>
+                      
+                        <h4 class="appoinment_text">BOOK</h4>
                      </div>
                   </div>
                </div>

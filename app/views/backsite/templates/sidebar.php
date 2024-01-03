@@ -2,8 +2,8 @@
 <aside class="main-sidebar sidebar-dark-info elevation-4">
   <!-- Brand Logo -->
   <a href="<?= BASEURL; ?>/assets/backsite/index3.html" class="brand-link">
-    <img src="<?= BASEURL; ?>/assets/backsite/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Perpustakaan</span>
+    <img src="<?= BASEURL; ?>/assets/frontsite/img/logosmppgri.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Perpustakaan Pgri</span>
   </a>
 
   <!-- Sidebar -->

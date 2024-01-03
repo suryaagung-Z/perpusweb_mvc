@@ -113,6 +113,11 @@ class Pengguna extends Controller
                     $data = [
                         "id" => $id,
                         "foto" => $namaFileBaru,
+                        "nama"   => $_POST['nama'],
+                        "email"  => $_POST['email'],
+                        "status" => $_POST['status'],
+                        "level"  => $_POST['level'],
+                        "tlp"    => $_POST['tlp'],
                     ];
 
                     if ($this->model('PenggunaModel')->updatePengguna($data) > 0) {
