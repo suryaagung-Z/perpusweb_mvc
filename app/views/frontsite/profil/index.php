@@ -191,7 +191,7 @@
                                 'f': `
                                 <div class="row p-0 i_org">
                                     <div class="col-3 p-0 left">
-                                        <img src="<?= BASEURL; ?>/assets/frontsite/img/foto_profile/${org.foto ?? ''}" alt="">
+                                        <img src="<?= BASEURL; ?>/assets/frontsite/img/organisasi/${org.foto ?? ''}" alt="">
                                     </div>
                                     <div class="col-9 p-0 text-uppercase right">
                                         <div class="box p-0">

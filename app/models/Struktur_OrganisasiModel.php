@@ -17,7 +17,7 @@ class Struktur_OrganisasiModel
 
     public function getAllOnly_id_name()
     {
-        $this->db->query('SELECT id, nama FROM ' . $this->table);
+        $this->db->query('SELECT  nama FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
@@ -42,7 +42,7 @@ class Struktur_OrganisasiModel
 
     public function updateStruktur_Organisasi($data)
     {
-        $query = "UPDATE struktur_organisasi SET image=:foto, nama=:nama, jabatan=:jabatan, parent_key=:parent_key WHERE id=:id";
+        $query = "UPDATE struktur_organisasi SET foto=:foto, nama=:nama, jabatan=:jabatan, parent_key=:parent_key WHERE id=:id";
         $this->db->query($query);
         $this->db->bind('id', $data['id']);
         $this->db->bind('nama', $data['nama']);
@@ -57,9 +57,19 @@ class Struktur_OrganisasiModel
 
     public function deleteStruktur_Organisasi($id)
     {
+        $getUser = $this->getAllOnly_id_name();
+
         $this->db->query('DELETE FROM ' . $this->table . ' WHERE id=:id');
         $this->db->bind('id', $id);
         $this->db->execute();
+
+        if ($getUser && isset($getUser['foto'])) {
+            $pathFile = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $getUser['foto'];
+            if (file_exists($pathFile)) {
+                unlink($pathFile);
+            }
+        }
+
         return $this->db->rowCount();
     }
 

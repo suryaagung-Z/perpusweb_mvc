@@ -19,9 +19,9 @@
               </div>
               <div class="form-group">
                 <label>Foto</label>
-                <input type="hidden" name="foto_lama" value="<?= $data['struktur_organisasi']['image'] ?>">
+                <input type="hidden" name="foto_lama" value="<?= $data['struktur_organisasi']['foto'] ?>">
                 <input type="file" class="form-control" name="foto_baru">
-                <img src="<?= BASEURL . "/public/assets/frontsite/img/organisasi/" . $data['struktur_organisasi']['image']; ?>" style="width: 60px;">
+                <img src="<?= BASEURL . "/public/assets/frontsite/img/organisasi/" . $data['struktur_organisasi']['foto']; ?>" style="width: 60px;">
               </div>
               <div class="form-group">
                 <label>Jabatan</label>

@@ -20,7 +20,7 @@
   <div class="form-group">
     <label>Foto</label>
     <input type="file" class="form-control" name="foto">
-    <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $data['anggota']['foto']; ?>" style="width: 60px;">
+    <img src="<?= BASEURL . "/public/assets/frontsite/img/anggota/" . $data['anggota']['foto']; ?>" style="width: 60px;">
   </div>
   <div class="form-group">
     <label>Nisn</label>

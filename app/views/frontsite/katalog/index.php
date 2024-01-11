@@ -94,7 +94,7 @@
                   <?php foreach ($data['buku'] as $buku) : ?>
                     <div class="col-md-3 mb-3">
                       <div class="card">
-                        <img src="<?= BASEURL; ?>/public/assets/frontsite/img/foto_profile/<?= $buku['foto']; ?>" class="card-img-top" alt="Cover Buku">
+                        <img src="<?= BASEURL; ?>/public/assets/frontsite/img/buku/<?= $buku['foto']; ?>" class="card-img-top" alt="Cover Buku">
                         <div class="card-body">
                           <h5 class="card-title"><?= $buku['judul']; ?></h5>
                           <p class="card-text">Pengarang: <?= $buku['pengarang']; ?></p>

@@ -11,7 +11,7 @@
             <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/bg-card5.png' ?>" alt="bg" id="bg-card" style="z-index: 0;">
             <div class="top" style="position: relative; z-index: 1;">
               <section>
-                <img src="<?= BASEURL . '/public/assets/frontsite/img/logosmppgri.png' ?>" alt="logo">
+                <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/logosmppgri.png' ?>" alt="logo">
               </section>
               <section>
                 <h1>kartu anggota perpustakaan</h1>
@@ -20,12 +20,12 @@
                 <p>Telp. ( 021 ) 1234567</p>
               </section>
               <section>
-                <img src="<?= BASEURL . '/public/assets/frontsite/img/pgri12.png' ?>" style="width: 140px; height: auto;">
+                <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/pgri12.png' ?>" style="width: 140px; height: auto;">
               </section>
             </div>
             <div class="bottom" style="position: relative; z-index: 1;">
               <section class="left">
-                <img src="<?= BASEURL . '/public/assets/frontsite/img/foto_profile/' . $data['anggota']['foto'] ?>" alt="">
+                <img src="<?= BASEURL . '/public/assets/frontsite/img/anggota/' . $data['anggota']['foto'] ?>" alt="">
               </section>
               <section class="right">
                 <div class="table">
@@ -50,13 +50,12 @@
                 <div class="ttd">
                   <div></div>
                   <div style="position: relative;">
-                    <img src="<?= BASEURL . '/public/assets/frontsite/img/stempel.png' ?>" alt="stempel" id="stempel">
+                    <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/stempel.png' ?>" alt="stempel" id="stempel">
 
                     <p>Pkl.Kerinci, <span id="current_time"></span></p>
                     <p>Kepala Sekolah</p>
-                    <img src="<?= BASEURL . '/public/assets/frontsite/img/ttd.png' ?>" alt="ttd" id="ttd">
-                    <p><u>HERMAN SAPUTRA.SE </u></p>
-                    <p>NIP. 123456789000000</p>
+                    <img src="<?= BASEURL . '/public/assets/frontsite/img/card-print/ttd.png' ?>" alt="ttd" id="ttd">
+                    <p>HERMAN SAPUTRA.SE </p>
                   </div>
                 </div>
               </section>

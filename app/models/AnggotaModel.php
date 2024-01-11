@@ -69,7 +69,7 @@ class AnggotaModel
         $this->db->execute();
 
         if ($getUser && isset($getUser['foto'])) {
-            $pathFile = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $getUser['foto'];
+            $pathFile = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_ANGGOTA . $getUser['foto'];
             if (file_exists($pathFile)) {
                 unlink($pathFile);
             }

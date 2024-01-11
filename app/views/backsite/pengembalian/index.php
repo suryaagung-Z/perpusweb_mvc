@@ -43,6 +43,8 @@
                 <th>Tanggal Pengembalian</th>
                 <th>Tanggal Dikembalikan</th>
                 <th>Jumlah</th>
+                <th>denda</th>
+
 
               </tr>
             </thead>
@@ -59,6 +61,9 @@
                   <td><?= $row['tanggalkembali']; ?></td>
                   <td><?= $row['kembali']; ?></td>
                   <td><?= $row['jumlah']; ?></td>
+                  <td><?= $row['denda']; ?></td>
+
+
 
 
                 </tr>

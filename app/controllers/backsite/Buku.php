@@ -56,7 +56,7 @@ class Buku extends Controller
 
             if ($error === 0) {
                 $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
-                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_BUKU . $namaFileBaru;
 
                 if (move_uploaded_file($tmpName, $tujuan)) {
                     if ($this->model('BukuModel')->tambahBuku([
@@ -143,7 +143,7 @@ class Buku extends Controller
             if ($ukuranFile > 0) {
                 // Proses update gambar
                 $namaFileBaru = uniqid() . '.' . pathinfo($namaFile, PATHINFO_EXTENSION);
-                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_PROFILE . $namaFileBaru;
+                $tujuan = $_SERVER['DOCUMENT_ROOT'] . ROOT_SEGMENT . PATH_FOTO_BUKU . $namaFileBaru;
 
                 if (move_uploaded_file($tmpName, $tujuan)) {
                     // Update data anggota dengan foto baru

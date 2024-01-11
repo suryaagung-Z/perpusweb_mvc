@@ -1,4 +1,5 @@
 <!-- Main content -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -15,21 +16,7 @@
             <h3 class="card-title">Data kategori</h3>
           </div>
           <div class="card-body">
-            <form action="<?= BASEURL; ?>/backsite/buku/search" method="post">
-              <div class="row mb-3">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <input type="text" class="form-control"
-                      placeholder="" name="key">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                      <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/backsite/buku">Reset</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <table class="table table-bordered">
+          <table class="table table-bordered display" id="for_datatable">
               <thead>
                 <tr>
                   <th style="width: 10px">No</th>
@@ -77,6 +64,7 @@
           <div class="card-footer">
             Footer
           </div>
+        </div>
           <!-- /.card-footer-->
         </div>
         <!-- /.card -->
@@ -84,6 +72,12 @@
     </div>
   </div>
 </section>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script lang="javascript">
+  let table = new DataTable('#for_datatable', {
+    responsive: true
+  });
+</script>
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

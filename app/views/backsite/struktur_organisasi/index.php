@@ -45,7 +45,7 @@
                           <td><?= $no; ?></td>
                           <td><?= $row['id']; ?></td>
                           <td style="text-align: center;">
-                            <img src="<?= BASEURL . "/public/assets/frontsite/img/organisasi/" . $row['image']; ?>" style="width: 60px;">
+                            <img src="<?= BASEURL . "/public/assets/frontsite/img/organisasi/" . $row['foto']; ?>" style="width: 60px;">
                           </td>
                           <td><?= $row['jabatan']; ?></td>
                           <td><?= $row['parent_key']; ?></td>

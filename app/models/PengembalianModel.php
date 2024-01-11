@@ -15,7 +15,6 @@ class PengembalianModel
         return $this->db->single();
     }
 
-
     public function getAllPengembalian()
     {
         $this->db->query('SELECT * FROM ' . $this->table);
@@ -31,7 +30,10 @@ class PengembalianModel
 
     public function tambahPengembalian($data)
     {
-        $query = "INSERT INTO pengembalian (nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :kembali, :jumlah, :status, :kelas)";
+        // Hitung denda dan tambahkan ke data pengembalian
+        $data['denda'] = $this->hitungDenda($data['tanggalkembali']);
+
+        $query = "INSERT INTO pengembalian (nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas, denda) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :kembali, :jumlah, :status, :kelas, :denda)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('judul', $data['judul']);
@@ -41,6 +43,7 @@ class PengembalianModel
         $this->db->bind('jumlah', $data['jumlah']);
         $this->db->bind('status', $data['status']);
         $this->db->bind('kelas', $data['kelas']);
+        $this->db->bind('denda', $data['denda']);
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -48,73 +51,35 @@ class PengembalianModel
 
     public function cetakPengembalian()
     {
-        $query = "SELECT nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas FROM pengembalian";
+        $query = "SELECT nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas, denda FROM pengembalian";
         $this->db->query($query);
 
         return $this->db->resultSet();
     }
 
-    public function cetakLaporanByMonthAndYear($month, $year)
+ 
+
+    private function hitungDenda($tanggalKembali)
     {
-        // Sesuaikan kondisi sesuai kebutuhan
-        $query = "SELECT * FROM pengembalian
-                  WHERE MONTH(tanggalpinjam) = :bulan AND YEAR(tanggalpinjam) = :tahun";
+        $batasPengembalian = date('Y-m-d', strtotime($tanggalKembali . ' +1 day'));
 
-        // Bind parameter ke dalam query
-        $this->db->query($query);
-        $this->db->bind(':bulan', $month);
-        $this->db->bind(':tahun', $year);
+        // Jika tanggal pengembalian melewati batas, hitung denda
+        if (strtotime($tanggalKembali) > strtotime($batasPengembalian)) {
+            // Hitung selisih hari
+            $selisihHari = floor((strtotime($tanggalKembali) - strtotime($batasPengembalian)) / (60 * 60 * 24));
 
-        return $this->db->resultSet();
-    }
-    public function cetakLaporanByDateRange($startYear, $startMonth, $startDay, $endYear, $endMonth, $endDay)
-    {
-        // Sesuaikan kondisi sesuai kebutuhan
-        $query = "SELECT * FROM pengembalian 
-                  WHERE (tanggalpinjam BETWEEN :start_date AND :end_date)
-                  OR (tanggalkembali BETWEEN :start_date AND :end_date)";
+            // Denda per hari (contoh: 500 per hari)
+            $dendaPerHari = 500;
 
-        // Bind parameter ke dalam query
-        $this->db->query($query);
-        $this->db->bind(':start_date', "$startYear-$startMonth-$startDay");
-        $this->db->bind(':end_date', "$endYear-$endMonth-$endDay");
+            // Total denda
+            $totalDenda = $selisihHari * $dendaPerHari;
 
-        return $this->db->resultSet();
+            return $totalDenda;
+        }
+
+        return 0; // Tidak ada denda
     }
 
 
-
-    public function updatePengembalian($data)
-    {
-        $query = "UPDATE pengembalian SET nama=:nama, judul=:judul, tanggalpinjam=:tanggalpinjam, tanggalkembali=:tanggalkembali, kembali=:kembali, status=:status, jumlah=:jumlah, kelas=:kelas WHERE id=:id";
-        $this->db->query($query);
-        $this->db->bind('nama', $data['nama']);
-        $this->db->bind('judul', $data['judul']);
-        $this->db->bind('tanggalpinjam', $data['tanggalpinjam']);
-        $this->db->bind('tanggalkembali', $data['tanggalkembali']);
-        $this->db->bind('kembali', $data['kembali']);
-        $this->db->bind('status', $data['status']);
-        $this->db->bind('jumlah', $data['jumlah']);
-        $this->db->bind('kelas', $data['kelas']);
-        $this->db->bind('id', $data['id']);
-        $this->db->execute();
-        return $this->db->rowCount();
-    }
-
-
-    public function deletePengembalian($id)
-    {
-        $this->db->query('DELETE FROM ' . $this->table . ' WHERE id=:id');
-        $this->db->bind('id', $id);
-        $this->db->execute();
-        return $this->db->rowCount();
-    }
-
-    public function cariPengembalian()
-    {
-        $key = $_POST['key'];
-        $this->db->query("SELECT * FROM " . $this->table . " WHERE nama LIKE :key");
-        $this->db->bind('key', "%$key%");
-        return $this->db->resultSet();
-    }
+    // Fungsi lainnya...
 }

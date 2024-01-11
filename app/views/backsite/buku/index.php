@@ -37,7 +37,7 @@
                         <th>Rak</th>
                         <th>Jumlah</th>
                         <th>Tanggal Masuk</th>
-                        <th style="width: 100px">Action</th>
+                        <th style="width: 50px">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -46,7 +46,7 @@
                         <td><?= $no; ?></td>
                         <td>
                           <div class="text-center">
-                            <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $row['foto']; ?>" style="width: 60px;" alt="Foto Profil">
+                            <img src="<?= BASEURL . "/public/assets/frontsite/img/buku/" . $row['foto']; ?>" style="width: 60px;" alt="Foto Profil">
                             <p class="mt-2"><?= $row['judul']; ?></p>
                           </div>
                         </td>
@@ -92,6 +92,7 @@
                       });
                     });
                   </script>
+                </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
                     Footer
@@ -102,6 +103,9 @@
               </div>
             </div>
           </div>
+        </div>
+     
+
 </section>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 <script lang="javascript">

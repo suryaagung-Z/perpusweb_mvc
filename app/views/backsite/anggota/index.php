@@ -1,4 +1,5 @@
  <!-- Main content -->
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
  <section class="content">
    <div class="container-fluid">
      <div class="row">
@@ -15,19 +16,6 @@
                    <h3 class="card-title">Anggota</h3>
                  </div>
                  <div class="card-body">
-                   <form action="<?= BASEURL; ?>/backsite/anggota/search" method="post">
-                     <div class="row mb-3">
-                       <div class="col-lg-6">
-                         <div class="input-group">
-                           <input type="text" class="form-control" placeholder="" name="key">
-                           <div class="input-group-append">
-                             <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                             <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/backsite/anggota">Reset</a>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                   </form>
                    <div class="float-right">
                      <a href="<?= BASEURL; ?>/backsite/anggota/create" class="btn btn-primary mb-4"><i class="bi bi-bookmark-plus-fill">TAMBAH DATA</i>
                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
@@ -35,7 +23,7 @@
                             0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
                        </svg></a>
                    </div>
-                   <table class="table table-bordered">
+                   <table class="table table-bordered display" id="for_datatable">
                      <thead>
                        <tr>
                          <th style="width: 10px">No</th>
@@ -45,7 +33,7 @@
                          <th>Kelas</th>
                          <th>Jenis Kelamin</th>
                          <th>Alamat</th>
-                         <th style="width: 150px">Action</th>
+                         <th style="width: 80px">Action</th>
                        </tr>
                      </thead>
                      <tbody>
@@ -56,7 +44,7 @@
 
                            <td><?= $row['nama']; ?></td>
                            <td>
-                             <img src="<?= BASEURL . "/public/assets/frontsite/img/foto_profile/" . $row['foto']; ?>" style="width: 60px;" <?= $row['nama']; ?>>
+                             <img src="<?= BASEURL . "/public/assets/frontsite/img/anggota/" . $row['foto']; ?>" style="width: 60px;" <?= $row['nama']; ?>>
                            </td>
                            <td><?= $row['nisn']; ?></td>
                            <td><?= $row['kelas']; ?></td>
@@ -70,7 +58,10 @@
                              <a href="<?= BASEURL; ?>/backsite/anggota/deploy/<?= $row['id'] ?>" class="badge badge-danger" onclick="return confirm('Hapus data?');"><i class="bi bi-trash3"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                                  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
                                </svg></a>
-                             <a href="<?= BASEURL; ?>/backsite/anggota/print/<?= $row['id'] ?>" class="badge badge-info">Cetak</a>
+                             <a href="<?= BASEURL; ?>/backsite/anggota/print/<?= $row['id'] ?>" class="badge badge-info"><i class="bi bi-printer"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+  <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+  <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+</svg></a>
                            </td>
 
                          </tr>
@@ -107,7 +98,14 @@
              </div>
            </div>
          </div>
+       </div>
  </section>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script lang="javascript">
+  let table = new DataTable('#for_datatable', {
+    responsive: true
+  });
+</script>
  <!-- /.content -->
  </div>
  <!-- /.content-wrapper -->

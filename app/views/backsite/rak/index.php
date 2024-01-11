@@ -1,4 +1,5 @@
 <!-- Main content -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -14,38 +15,25 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Data rak</h3>
+            
           </div>
         
           <div class="card-body">
-            <form action="<?= BASEURL; ?>/backsite/rak/search" method="post">
-              <div class="row mb-3">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <input type="text" class="form-control"
-                      placeholder="" name="key">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                      <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/backsite/rak">Reset</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="float-right"> <!-- Add a container for right-aligned content -->
-            <a href="<?= BASEURL; ?>/backsite/rak/create" class="btn btn-primary mb-4"><i class="bi bi-bookmark-plus-fill">TAMBAH DATA</i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0
-                            0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"/>
-                            </svg></a>
-                          </div>         
-            <table class="table table-bordered">
+                  <div class="float-right">
+                    <a href="<?= BASEURL; ?>/backsite/rak/create" class="btn btn-primary mb-4"><i class="bi bi-bookmark-plus-fill">TAMBAH DATA</i>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0
+                            0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
+                      </svg></a>
+                  </div> 
+                          <table class="table table-bordered display" id="for_datatable">
               <thead>
                 <tr>
                   <th style="width: 10px">No</th>
                   <th>Nama</th>
                   <th>Nomor Rak</th>
                   <th>Keterangan</th>
-                  <th style="width: 100px">Action</th>
+                  <th style="width: 50px">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,7 +88,14 @@
       </div>
     </div>
   </div>
+      </div>
 </section>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script lang="javascript">
+  let table = new DataTable('#for_datatable', {
+    responsive: true
+  });
+</script>
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

@@ -1,4 +1,5 @@
 <!-- Main content -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -15,19 +16,6 @@
                   <h3 class="card-title">pengguna</h3>
                 </div>
                 <div class="card-body">
-                  <form action="<?= BASEURL; ?>/backsite/pengguna/search" method="post">
-                    <div class="row mb-3">
-                      <div class="col-lg-6">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="" name="key">
-                          <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit">Cari Data</button>
-                            <a class="btn btn-outline-danger" href="<?= BASEURL; ?>/backsite/pengguna">Reset</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
                   <div class="float-right">
                     <a href="<?= BASEURL; ?>/backsite/pengguna/create" class="btn btn-primary mb-4"><i class="bi bi-bookmark-plus-fill">TAMBAH DATA</i>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus-fill" viewBox="0 0 16 16">
@@ -35,7 +23,7 @@
                             0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z" />
                       </svg></a>
                   </div>
-                  <table class="table table-bordered">
+                <table class="table table-bordered display" id="for_datatable">
                     <thead>
                       <tr>
                         <th style="width: 10px">No</th>
@@ -45,7 +33,7 @@
                         <th>Phone</th>
                         <th>Status</th>
                         <th>Level</th>
-                        <th style="width: 100px">Action</th>
+                        <th style="width: 50px">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -105,7 +93,14 @@
             </div>
           </div>
         </div>
+      </div>
 </section>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script lang="javascript">
+  let table = new DataTable('#for_datatable', {
+    responsive: true
+  });
+</script>
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
