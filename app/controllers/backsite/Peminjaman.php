@@ -52,28 +52,21 @@ class Peminjaman extends Controller
             exit;
         }
     }
-    
-    private function hitungDenda($tanggalKembali)
+
+    private function hitungDenda($tglkembali)
     {
-      // Tanggal batas pengembalian (misalnya 1 hari setelah tanggal peminjaman)
-            $batasPengembalian = date('Y-m-d', strtotime($tanggalKembali . ' +1 day'));
-    
-            // Jika tanggal pengembalian melewati batas, hitung denda
-            if (strtotime($tanggalKembali) > strtotime($batasPengembalian)) {
-                // Hitung selisih hari
-                $selisihHari = floor((strtotime($tanggalKembali) - strtotime($batasPengembalian)) / (60 * 60 * 24));
-    
-                // Denda per hari (contoh: 500 per hari)
-                $dendaPerHari = 500;
-    
-                // Total denda
-                $totalDenda = $selisihHari * $dendaPerHari;
-    
-                return $totalDenda;
-            }
-    
-            return 0; // Tidak ada denda
-        
+        $tanggalSaatIni = date("Y-m-d");
+        $tanggalKembali = date("Y-m-d", strtotime($tglkembali));
+
+        if ($tanggalSaatIni > $tanggalKembali) {
+            $selisihHari = strtotime($tanggalSaatIni) - strtotime($tanggalKembali);
+            $selisihHari = floor($selisihHari / (60 * 60 * 24));
+            $denda = $selisihHari * 500;
+        } else {
+            $denda = 0;
+        }
+
+        return strval(intval($denda));
     }
 
 
@@ -82,13 +75,7 @@ class Peminjaman extends Controller
         $data = $this->model('PeminjamanModel')->getPeminjamanById($id);
 
         if ($data) {
-            // Hitung denda berdasarkan tanggal kembali
             $denda = $this->hitungDenda($data['tanggalkembali']);
-
-            $pengembalianData = [
-                // ... data pengembalian ...
-                'denda' => $denda,
-            ];
 
             $pengembalianData = [
                 'nama' => $data['nama'],
@@ -99,7 +86,7 @@ class Peminjaman extends Controller
                 'jumlah' => $data['jumlah'],
                 'status' => "dikembalikan",
                 'kelas' => $data['kelas'],
-                'denda' => $denda // Menggunakan denda yang sudah dihitung
+                'denda' => $denda
             ];
 
             $move = $this->model('PengembalianModel')->tambahPengembalian($pengembalianData);
@@ -118,8 +105,8 @@ class Peminjaman extends Controller
             exit();
         }
     }
-    
-      
+
+
 
     public function edit($id)
     {

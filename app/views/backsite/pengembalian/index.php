@@ -43,9 +43,8 @@
                 <th>Tanggal Pengembalian</th>
                 <th>Tanggal Dikembalikan</th>
                 <th>Jumlah</th>
-                <th>denda</th>
-
-
+                <th>Denda</th>
+                <th>Telat</th>
               </tr>
             </thead>
             <tbody>
@@ -61,11 +60,16 @@
                   <td><?= $row['tanggalkembali']; ?></td>
                   <td><?= $row['kembali']; ?></td>
                   <td><?= $row['jumlah']; ?></td>
-                  <td><?= $row['denda']; ?></td>
+                  <td>Rp. <?= $row['denda']; ?></td>
+                  <td>
+                    <?php
+                    $tanggalkembali = strtotime($row['tanggalkembali']);
+                    $kembali = strtotime($row['kembali']);
+                    $selisih_hari = ($kembali <= $tanggalkembali) ? 0 : ceil(abs($kembali - $tanggalkembali) / (60 * 60 * 24));
 
-
-
-
+                    echo $selisih_hari . " Hari";
+                    ?>
+                  </td>
                 </tr>
               <?php $no++;
               endforeach; ?>
@@ -75,6 +79,12 @@
 
           <!-- Tambahkan skrip berikut di akhir file HTML Anda, tepat sebelum tag penutup </body> -->
           <script>
+            // function formatRupiah(angka) {
+            //   return angka.toLocaleString('id-ID', {
+            //     style: 'currency',
+            //     currency: 'IDR'
+            //   });
+            // }
             document.addEventListener('DOMContentLoaded', function() {
               var barisTabel = document.querySelectorAll('table tbody tr');
 
@@ -87,6 +97,8 @@
                   baris.style.backgroundColor = '#f9f9f9';
                 }
               });
+
+
             });
           </script>
         </div>

@@ -30,9 +30,6 @@ class PengembalianModel
 
     public function tambahPengembalian($data)
     {
-        // Hitung denda dan tambahkan ke data pengembalian
-        $data['denda'] = $this->hitungDenda($data['tanggalkembali']);
-
         $query = "INSERT INTO pengembalian (nama, judul, tanggalpinjam, tanggalkembali, kembali, jumlah, status, kelas, denda) VALUES (:nama, :judul, :tanggalpinjam, :tanggalkembali, :kembali, :jumlah, :status, :kelas, :denda)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
@@ -56,30 +53,4 @@ class PengembalianModel
 
         return $this->db->resultSet();
     }
-
- 
-
-    private function hitungDenda($tanggalKembali)
-    {
-        $batasPengembalian = date('Y-m-d', strtotime($tanggalKembali . ' +1 day'));
-
-        // Jika tanggal pengembalian melewati batas, hitung denda
-        if (strtotime($tanggalKembali) > strtotime($batasPengembalian)) {
-            // Hitung selisih hari
-            $selisihHari = floor((strtotime($tanggalKembali) - strtotime($batasPengembalian)) / (60 * 60 * 24));
-
-            // Denda per hari (contoh: 500 per hari)
-            $dendaPerHari = 500;
-
-            // Total denda
-            $totalDenda = $selisihHari * $dendaPerHari;
-
-            return $totalDenda;
-        }
-
-        return 0; // Tidak ada denda
-    }
-
-
-    // Fungsi lainnya...
 }
